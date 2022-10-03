@@ -2,7 +2,7 @@
 title: Filtering
 ---
 
-**What are filters?**
+## What are filters?
 
 With Hot Chocolate filters, you can expose complex filter objects through your GraphQL API that translates to native database queries.
 
@@ -40,7 +40,7 @@ input FooFilter {
 }
 ```
 
-**So how can we get started with filters?**
+## So how can we get started with filters?
 
 Getting started with filters is very easy, especially if you do not want to explicitly define filters or customize anything.
 
@@ -52,7 +52,7 @@ Hot Chocolate will infer the filters directly from your .Net Model and then use 
 
 In the following example, the person resolver returns the `IQueryable` representing the data source. The `IQueryable` represents a not executed database query on which Hot Chocolate can apply filters.
 
-**Code First**
+### Code First
 
 The next thing to note is the `UseFiltering` extension method which adds the filter argument to the field and a middleware that can apply those filters to the `IQueryable`. The execution engine will, in the end, execute the `IQueryable` and fetch the data.
 
@@ -77,7 +77,7 @@ public class Query
 }
 ```
 
-**Pure Code First**
+#### Pure Code First
 
 The field descriptor attribute `[UseFiltering]` does apply the extension method `UseFiltering()` on the field descriptor.
 
@@ -92,7 +92,7 @@ public class Query
 }
 ```
 
-**Schema First**
+### Schema First
 
 > ⚠️ **Note:** Schema first does currently not support filtering!
 
