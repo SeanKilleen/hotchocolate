@@ -1,6 +1,7 @@
 {
 
   "default": false,
+  "MD036": true,
   "MD004": {
     "style": "consistent"
   },
