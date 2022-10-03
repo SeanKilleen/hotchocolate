@@ -104,13 +104,13 @@ dotnet run
 
 * First, we will ask our GraphQL server to execute our query with the optimized request containing only the query hash. At this point, the server will not know this query and hast to return an error indicating this.
 
-**Request**
+`Request`:
 
 ```bash
 curl -g 'http://localhost:5000/graphql/?extensions={"persistedQuery":{"version":1,"md5Hash":"71yeex4k3iYWQgg9TilDIg=="}}'
 ```
 
-**Response**
+`Response`:
 
 The response indicates, as expected, that this query is unknown so far.
 
@@ -127,13 +127,13 @@ The response indicates, as expected, that this query is unknown so far.
 
 * Next, we want to store our dummy query on the server. We will send in the hash as before but now also provide the query parameter with the full GraphQL query string.
 
-**Request**
+`Request`:
 
 ```bash
 curl -g 'http://localhost:5000/graphql/?query={__typename}&extensions={"persistedQuery":{"version":1,"md5Hash":"71yeex4k3iYWQgg9TilDIg=="}}'
 ```
 
-**Response**
+`Response`:
 
 Our GraphQL server will respond with the query result and indicate that the query was stored on the server `"persisted": true`.
 
@@ -151,13 +151,13 @@ Our GraphQL server will respond with the query result and indicate that the quer
 
 * Last but not least, we will verify that we can now use our optimized request by executing our initial request containing only the query hash.
 
-**Request**
+`Request`:
 
 ```bash
 curl -g 'http://localhost:5000/graphql/?extensions={"persistedQuery":{"version":1,"md5Hash":"71yeex4k3iYWQgg9TilDIg=="}}'
 ```
 
-**Response**
+`Response`:
 
 This time the server knows the query and will respond with the simple result of this query.
 
@@ -197,13 +197,13 @@ dotnet run
 
 * Next, let us verify that our server now operates with the new hash provider and the new hash serialization format. For this we will store again a query on the server, but this time our hash string will look like the following: `7f56e67dd21ab3f30d1ff8b7bed08893f0a0db86449836189b361dd1e56ddb4b`.
 
-**Request**
+`Request`:
 
 ```bash
 curl -g 'http://localhost:5000/graphql/?query={__typename}&extensions={"persistedQuery":{"version":1,"sha256Hash":"7f56e67dd21ab3f30d1ff8b7bed08893f0a0db86449836189b361dd1e56ddb4b"}}'
 ```
 
-**Response**
+`Response`:
 
 ```json
 {
@@ -260,13 +260,13 @@ dotnet run
 
 * Now, let us verify again if our server works correctly by storing our query first.
 
-**Request**
+`Request`:
 
 ```bash
 curl -g 'http://localhost:5000/graphql/?query={__typename}&extensions={"persistedQuery":{"version":1,"sha256Hash":"7f56e67dd21ab3f30d1ff8b7bed08893f0a0db86449836189b361dd1e56ddb4b"}}'
 ```
 
-**Response**
+`Response`:
 
 ```json
 {
@@ -290,13 +290,13 @@ dotnet run
 
 * Let us execute the optimized query to see if our query was correctly stored on our Redis cache.
 
-**Request**
+`Request`:
 
 ```bash
 curl -g 'http://localhost:5000/graphql/?extensions={"persistedQuery":{"version":1,"sha256Hash":"7f56e67dd21ab3f30d1ff8b7bed08893f0a0db86449836189b361dd1e56ddb4b"}}'
 ```
 
-**Response**
+`Response`:
 
 ```json
 { "data": { "__typename": "Query" } }
