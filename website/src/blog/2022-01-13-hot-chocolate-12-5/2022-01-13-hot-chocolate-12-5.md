@@ -75,7 +75,7 @@ We support _`OneOf` Input Objects_ in all three schema-building approaches (anno
 
 In order to make an input object a _`OneOf` Input Object_ you simply need to annotate it with the `@oneOf` directive.
 
-**schema-first**
+### schema-first
 
 ```sdl
 input PetInput @oneOf {
@@ -84,7 +84,7 @@ input PetInput @oneOf {
 }
 ```
 
-**code-first**
+### code-first
 
 ```csharp
 public class PetInputType : InputObjectType<PetInput>
@@ -104,7 +104,7 @@ public class PetInput
 }
 ```
 
-**annotation-based**
+### annotation-based
 
 ```csharp
 [OneOf]

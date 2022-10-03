@@ -20,7 +20,7 @@ So here is my solution.
 * Go to your `website\siteConfig.js` file and update the entry doc link in the `headerLinks`
    section by adding `href: "/docs"` to it.
 
-**Before**
+## Before
 
 ```javascript
 {
@@ -34,7 +34,7 @@ So here is my solution.
 }
 ```
 
-**After**
+## After
 
 ```javascript
 {

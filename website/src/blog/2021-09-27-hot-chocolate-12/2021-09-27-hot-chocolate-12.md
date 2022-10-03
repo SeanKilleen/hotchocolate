@@ -768,7 +768,7 @@ People often choose the latter since errors may come from the business layer tha
 
 With HotChocolate 12, we have introduced the `AggregateError` class, which allows you to wrap multiple errors into one error object; this helps us to preserve the interface but at the same time enables you to transform a single exception or a single error into multiple errors.
 
-**Error Filter**
+### Error Filter
 
 ```csharp
 public class ErrorFilter : IErrorFilter
@@ -792,7 +792,7 @@ public class ErrorFilter : IErrorFilter
 }
 ```
 
-**Registration**
+### Registration
 
 ```csharp
 builder.Services

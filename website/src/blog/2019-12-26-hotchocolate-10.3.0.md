@@ -294,7 +294,7 @@ So, we added for 10.3.0 the ability to also split up types with the _pure code-f
 
 Let\`s say we have a query type and we want to divide this up into logical units. We could add a bodiless query type by either adding an empty class to our `SchemaBuilder` or by using a schema type.
 
-**Approach 1 - Empty Class**
+## Approach 1 - Empty Class
 
 ```csharp
 public class Query
@@ -306,7 +306,7 @@ SchemaBuilder.New()
     ...
 ```
 
-**Approach 2 - Schema Type**
+## Approach 2 - Schema Type
 
 ```csharp
 public class Query : ObjectType

@@ -9,7 +9,7 @@ This guide will walk you through the manual migration steps to get your Hot Choc
 We have reworked the resolver compiler and are now demanding that the `ParentAttribute` is used when an argument is referring to the parent object.
 This is done since in some cases people want to get the parent object which is the same runtime type as an argument value.
 
-**v11**
+### v11
 
 ```csharp
 public string MyResolver(Person parent, string additionalInput)
@@ -18,7 +18,7 @@ public string MyResolver(Person parent, string additionalInput)
 }
 ```
 
-**v12**
+### v12
 
 ```csharp
 public string MyResolver([Parent] Person parent, string additionalInput)
@@ -75,7 +75,7 @@ services
 
 In v12 we have removed the `ConnectionType<T>` and `ConnectionType`.
 
-**v11**
+### v11
 
 ```csharp
 descriptor
@@ -88,7 +88,7 @@ descriptor
     });
 ```
 
-**v12**
+### v12
 
 ```csharp
 descriptor
@@ -186,7 +186,7 @@ Therefore we introduced two separate APIs to give you more explicit control over
 
 ## Global Object Identification
 
-**v11**
+### v11
 
 ```csharp
 services
@@ -194,7 +194,7 @@ services
     .EnableRelaySupport();
 ```
 
-**v12**
+### v12
 
 ```csharp
 services
@@ -206,7 +206,7 @@ services
 
 ## Query field in Mutation payloads
 
-**v11**
+### v11
 
 ```csharp
 services
@@ -219,7 +219,7 @@ services
     });
 ```
 
-**v12**
+### v12
 
 ```csharp
 sevices
@@ -244,7 +244,7 @@ We have consolidated the DataLoader base classes into the GreenDonut package whi
 
 Second, we optimized memory usage of DataLoader and it is now best practice to let the DI inject the DataLoaderOptions into the DataLoader.
 
-**v11**
+### v11
 
 ```csharp
 public class CustomBatchDataLoader : BatchDataLoader<string, string?>
@@ -259,7 +259,7 @@ public class CustomBatchDataLoader : BatchDataLoader<string, string?>
 }
 ```
 
-**v12**
+### v12
 
 ```csharp
 public class CustomBatchDataLoader : BatchDataLoader<string, string?>
@@ -281,7 +281,7 @@ Allowing the DI to inject the options will allow the DataLoader to use the new s
 If you're using a custom naming convention and have xml documentation enabled, you'll need to modify the way the naming convention is hooked up
 else your comments will disappear from your schema.
 
-**v11**
+### v11
 
 ```csharp
 public class CustomNamingConventions : DefaultNamingConventions
@@ -296,7 +296,7 @@ services
     .AddConvention<INamingConventions, CustomNamingConventions>();
 ```
 
-**v12**
+### v12
 
 ```csharp
 public class CustomNamingConventions : DefaultNamingConventions

@@ -70,7 +70,7 @@ the name `schema.graphql`. You can configure the extension in a `.graphqlconfig`
 
 The snapshot test to capture the schema could look like this:
 
-_/test/ExampleProject.Tests/SchemaTests.cs_
+`/test/ExampleProject.Tests/SchemaTests.cs`:
 
 ```csharp
 public class SchemaTests
