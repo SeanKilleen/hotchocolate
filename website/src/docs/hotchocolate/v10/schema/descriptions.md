@@ -51,7 +51,7 @@ SchemaBuilder.New()
     .Create();
 ```
 
-**SDL**
+### SDL
 
 ```sdl
 """
@@ -144,7 +144,7 @@ public class Query {
 }
 ```
 
-**SDL**
+### SDL
 
 ```sdl
 """
@@ -226,7 +226,7 @@ public class Query
 }
 ```
 
-**SDL**
+### SDL
 
 ```sdl
 """
@@ -277,7 +277,7 @@ public class DroidType : ObjectType<Droid>
 }
 ```
 
-**SDL**
+### SDL
 
 ```sdl
 """
@@ -319,7 +319,7 @@ public class QueryType : ObjectType<Query>
 }
 ```
 
-**SDL**
+### SDL
 
 ```sdl
 type Query {

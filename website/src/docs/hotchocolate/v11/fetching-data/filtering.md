@@ -635,13 +635,13 @@ services.AddGraphQLServer()
 
 With the convention descriptor, you can easily change the argument name of the `FilterInputType`.
 
-**Configuration**
+`Configuration`:
 
 ```csharp
 descriptor.ArgumentName("example_argument_name");
 ```
 
-**Result**
+`Result`:
 
 ```sdl
 type Query {
@@ -653,7 +653,7 @@ type Query {
 
 `FilterInputType`'s **cannot** just be registered on the schema. You have to bind them to the runtime type on the convention.
 
-**Configuration**
+`Configuration`:
 
 ```csharp
 public class UserFilterInput : FilterInputType<User>
@@ -682,7 +682,7 @@ descriptor.BindRuntimeType<string, CustomStringOperationFilterInput >();
 descriptor.BindRuntimeType<User, UserFilterInput>();
 ```
 
-**Result**
+`Result`:
 
 ```sdl
 type Query {

@@ -6,7 +6,7 @@ Hot Chocolate is deeply integrated with `Microsoft.Extension.DependencyInjection
 
 While it is possible to have constructor dependency injection on GraphQL type objects themselves it should be avoided. Think of the GraphQL types as `System.Type`s. Dependency injection is best used on the runtime types, that are passed through the execution engine.
 
-**GraphQL Type**
+## GraphQL Type
 
 ```csharp
 public class QueryType : ObjectType<Query>
@@ -15,7 +15,7 @@ public class QueryType : ObjectType<Query>
 }
 ```
 
-**Runtime Type**
+## Runtime Type
 
 ```csharp
 public class Query
