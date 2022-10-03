@@ -24,13 +24,13 @@ The Strawberry Shake tool will help you to setup your project to create a GraphQ
 
 Open your preferred terminal and select a directory where you want to add the code of this tutorial.
 
-* Create a dotnet tool-manifest.
+- Create a dotnet tool-manifest.
 
 ```bash
 dotnet new tool-manifest
 ```
 
-* Install the Strawberry Shake tools.
+- Install the Strawberry Shake tools.
 
 ```bash
 dotnet tool install StrawberryShake.Tools --local
@@ -40,19 +40,19 @@ dotnet tool install StrawberryShake.Tools --local
 
 Next, we will create our Blazor project so that we have a little playground.
 
-* First, a new solution called `Demo.sln`.
+- First, a new solution called `Demo.sln`.
 
 ```bash
 dotnet new sln -n Demo
 ```
 
-* Create a new Blazor for WebAssembly application.
+- Create a new Blazor for WebAssembly application.
 
 ```bash
 dotnet new blazorwasm -n Demo
 ```
 
-* Add the project to the solution `Demo.sln`.
+- Add the project to the solution `Demo.sln`.
 
 ```bash
 dotnet sln add ./Demo
@@ -62,13 +62,13 @@ dotnet sln add ./Demo
 
 Strawberry Shake supports multiple GraphQL transport protocols. In this example we will use the standard GraphQL over HTTP protocol to interact with our GraphQL server.
 
-* Add the `StrawberryShake.Transport.Http` package to your project.
+- Add the `StrawberryShake.Transport.Http` package to your project.
 
 ```bash
 dotnet add Demo package StrawberryShake.Transport.Http
 ```
 
-* Add the `StrawberryShake.CodeGeneration.CSharp.Analyzers` package to your project in order to add our code generation.
+- Add the `StrawberryShake.CodeGeneration.CSharp.Analyzers` package to your project in order to add our code generation.
 
 ```bash
 dotnet add Demo package StrawberryShake.CodeGeneration.CSharp.Analyzers
@@ -76,13 +76,13 @@ dotnet add Demo package StrawberryShake.CodeGeneration.CSharp.Analyzers
 
 When using the HTTP protocol we also need the HttpClientFactory and the Microsoft dependency injection.
 
-* Add the `Microsoft.Extensions.DependencyInjection` package to your project in order to add our code generation.
+- Add the `Microsoft.Extensions.DependencyInjection` package to your project in order to add our code generation.
 
 ```bash
 dotnet add Demo package Microsoft.Extensions.DependencyInjection
 ```
 
-* Add the `Microsoft.Extensions.Http` package to your project in order to add our code generation.
+- Add the `Microsoft.Extensions.Http` package to your project in order to add our code generation.
 
 ```bash
 dotnet add Demo package Microsoft.Extensions.Http
@@ -96,13 +96,13 @@ In this tutorial we will use our GraphQL workshop to create a list of sessions t
 
 > If you want to have a look at our GraphQL workshop head over [here](https://github.com/ChilliCream/graphql-workshop).
 
-* Add the conference client to your Blazor application.
+- Add the conference client to your Blazor application.
 
 ```bash
 dotnet graphql init https://workshop.chillicream.com/graphql/ -n ConferenceClient -p ./Demo
 ```
 
-* Customize the namespace of the generated client to be `Demo.GraphQL`. For this head over to the `.graphqlrc.json` and insert a namespace property to the `StrawberryShake` section.
+- Customize the namespace of the generated client to be `Demo.GraphQL`. For this head over to the `.graphqlrc.json` and insert a namespace property to the `StrawberryShake` section.
 
 ```json
 {
@@ -121,13 +121,13 @@ dotnet graphql init https://workshop.chillicream.com/graphql/ -n ConferenceClien
 
 Now that everything is in place let us write our first query to ask for a list of session titles of the conference API.
 
-* Choose your favorite IDE and the solution. If your are using VSCode do the following:
+- Choose your favorite IDE and the solution. If your are using VSCode do the following:
 
 ```bash
 code ./Demo
 ```
 
-* Create new query document `GetSessions.graphql` with the following content:
+- Create new query document `GetSessions.graphql` with the following content:
 
 ```graphql
 query GetSessions {
@@ -141,7 +141,7 @@ query GetSessions {
 
 > If you are working with Visual Studio on Windows edit the properties of GetSessions.graphql and set the build action for the GraphQL file to GraphQL compiler.
 
-* Compile your project.
+- Compile your project.
 
 ```bash
 dotnet build
@@ -151,7 +151,7 @@ With the project compiled you now should see a directory `Generated`. The genera
 
 ![Visual Studio code showing the generated directory.](../../shared/berry_generated.png)
 
-* Head over to the `Program.cs` and add the new `ConferenceClient` to the dependency injection.
+- Head over to the `Program.cs` and add the new `ConferenceClient` to the dependency injection.
 
 > In some IDEs it is still necessary to reload the project after the code was generated to update the IntelliSense. So, if you have any issues in the next step with IntelliSense just reload the project and everything should be fine.
 
@@ -174,7 +174,7 @@ public class Program
 }
 ```
 
-* Go to `_Imports.razor` and add `Demo.GraphQL` to the common imports
+- Go to `_Imports.razor` and add `Demo.GraphQL` to the common imports
 
 ```csharp
 @using System.Net.Http
@@ -195,16 +195,16 @@ public class Program
 
 In this section we will perform a simple fetch with our `ConferenceClient`. We will not yet look at state or other things that come with our client but just perform a simple fetch.
 
-* Head over to `Pages/Index.razor`.
+- Head over to `Pages/Index.razor`.
 
-* Add inject the `ConferenceClient` beneath the `@pages` directive.
+- Add inject the `ConferenceClient` beneath the `@pages` directive.
 
 ```csharp
 @page "/"
 @inject ConferenceClient ConferenceClient;
 ```
 
-* Introduce a code directive at the bottom of the file.
+- Introduce a code directive at the bottom of the file.
 
 ```csharp
 @page "/"
@@ -221,7 +221,7 @@ Welcome to your new app.
 }
 ```
 
-* Now lets fetch the titles with our client.
+- Now lets fetch the titles with our client.
 
 ```csharp
 @page "/"
@@ -244,7 +244,7 @@ Welcome to your new app.
 }
 ```
 
-* Last, lets render the titles on our page as a list.
+- Last, lets render the titles on our page as a list.
 
 ```csharp
 @page "/"
@@ -273,7 +273,7 @@ Welcome to your new app.
 }
 ```
 
-* Start the Blazor application with `dotnet run --project ./Demo` and see if your code works.
+- Start the Blazor application with `dotnet run --project ./Demo` and see if your code works.
 
 ![Started Blazor application in Microsoft Edge](../../shared/berry_session_list.png)
 
@@ -281,13 +281,13 @@ Welcome to your new app.
 
 The simple fetch of our data works. But every time we visit the index page it will fetch the data again although the data does not change often. Strawberry Shake also comes with state management where you can control the entity store and update it when you need to. In order to best interact with the store we will use `System.Reactive` from Microsoft. Lets get started :)
 
-* Install the package `System.Reactive`.
+- Install the package `System.Reactive`.
 
 ```bash
 dotnet add Demo package System.Reactive
 ```
 
-* Next, let us update the `_Imports.razor` with some more imports, namely `System`, `System.Reactive.Linq`, `System.Linq` and `StrawberryShake`.
+- Next, let us update the `_Imports.razor` with some more imports, namely `System`, `System.Reactive.Linq`, `System.Linq` and `StrawberryShake`.
 
 ```csharp
 @using System
@@ -307,7 +307,7 @@ dotnet add Demo package System.Reactive
 @using StrawberryShake
 ```
 
-* Head back to `Pages/Index.razor` and replace the code section with the following code:
+- Head back to `Pages/Index.razor` and replace the code section with the following code:
 
 ```csharp
 private string[] titles = Array.Empty<string>();
@@ -335,7 +335,7 @@ Also we specified on our watch method that we want to first look at the store an
 
 Last, note that we are storing a disposable on our component state called `storeSession`. This represents our session with the store. We need to dispose the session when we no longer display our component.
 
-* Implement `IDisposable` and handle the `storeSession` dispose.
+- Implement `IDisposable` and handle the `storeSession` dispose.
 
 ```csharp
 @page "/"
@@ -383,17 +383,17 @@ Welcome to your new app.
 
 Every time we move away from our index page Blazor will dispose our page which consequently will dispose our store session.
 
-* Start the Blazor application with `dotnet run --project ./Demo` and see if your code works.
+- Start the Blazor application with `dotnet run --project ./Demo` and see if your code works.
 
 ![Started Blazor application in Microsoft Edge](../../shared/berry_session_list.png)
 
 The page will look unchanged.
 
-* Next, open the developer tools of your browser and switch to the developer tools console. Refresh the site so that we get a fresh output.
+- Next, open the developer tools of your browser and switch to the developer tools console. Refresh the site so that we get a fresh output.
 
 ![Microsoft Edge developer tools show just one network interaction.](../../shared/berry_session_list_network.png)
 
-* Switch between the `Index` and the `Counter` page (back and forth) and watch the console output.
+- Switch between the `Index` and the `Counter` page (back and forth) and watch the console output.
 
 The Blazor application just fetched a single time from the network and now only gets the data from the store.
 
@@ -401,7 +401,7 @@ The Blazor application just fetched a single time from the network and now only 
 
 In this step we will introduce a mutation that will allow us to rename a session. For this we need to change our Blazor page a bit.
 
-* We need to get the session id for our session so that we can call the `renameSession` mutation. For this we will rewrite our `GetSessions` operation.
+- We need to get the session id for our session so that we can call the `renameSession` mutation. For this we will rewrite our `GetSessions` operation.
 
 ```graphql
 query GetSessions {
@@ -418,7 +418,7 @@ fragment SessionInfo on Session {
 }
 ```
 
-* Next we need to restructure the `Index.razor` page. We will get rid of the Blazor default content and rework our list to use our fragment `SessionInfo`. Further, we will introduce a button to our list so that we have a hook to start editing items from our list.
+- Next we need to restructure the `Index.razor` page. We will get rid of the Blazor default content and rework our list to use our fragment `SessionInfo`. Further, we will introduce a button to our list so that we have a hook to start editing items from our list.
 
 ```csharp
 @page "/"
@@ -465,7 +465,7 @@ fragment SessionInfo on Session {
 }
 ```
 
-* Next, we will define the GraphQL mutation by adding a new GraphQL document `RenameSession.graphql`.
+- Next, we will define the GraphQL mutation by adding a new GraphQL document `RenameSession.graphql`.
 
 ```graphql
 mutation RenameSession($sessionId: ID!, $title: String!) {
@@ -477,9 +477,9 @@ mutation RenameSession($sessionId: ID!, $title: String!) {
 }
 ```
 
-* Rebuild, the project so that the source generator will create all our new types.
+- Rebuild, the project so that the source generator will create all our new types.
 
-* Go back to the `Index.razor` page and lets add some state for our edit controls.
+- Go back to the `Index.razor` page and lets add some state for our edit controls.
 
 ```csharp
 private ISessionInfo selectedSession;
@@ -535,7 +535,7 @@ The page should now look like the following:
 }
 ```
 
-* Now, lets put some controls in to let the user edit the title of one of our sessions.
+- Now, lets put some controls in to let the user edit the title of one of our sessions.
 
 ```csharp
 @if (selectedSession is not null)
@@ -604,7 +604,7 @@ The page should now look like the following:
 }
 ```
 
-* Next, we want to wire the controls up with the click. For that replace the `OnClickSession` method with the following code:
+- Next, we want to wire the controls up with the click. For that replace the `OnClickSession` method with the following code:
 
 ```csharp
 private void OnClickSession(ISessionInfo session)
@@ -615,7 +615,7 @@ private void OnClickSession(ISessionInfo session)
 }
 ```
 
-* Add, a new method that now executes our new mutation `RenameSession`.
+- Add, a new method that now executes our new mutation `RenameSession`.
 
 ```csharp
 private async Task OnSaveTitle()
@@ -694,19 +694,19 @@ The page should now look like the following:
 }
 ```
 
-* Start the Blazor application with `dotnet run --project ./Demo` and see if your code works.
+- Start the Blazor application with `dotnet run --project ./Demo` and see if your code works.
 
 ![Started Blazor application in Microsoft Edge](../../shared/berry_mutation_1.png)
 
-*  Click on the edit button of one of the sessions.
+-  Click on the edit button of one of the sessions.
 
 ![Clicked on session edit button](../../shared/berry_mutation_2.png)
 
-*  Change the title of the session and click save.
+-  Change the title of the session and click save.
 
 ![Clicked on session edit button](../../shared/berry_mutation_3.png)
 
-*  The item is now changed in the list although we have not explicitly written any code to update the item in our list component.
+-  The item is now changed in the list although we have not explicitly written any code to update the item in our list component.
 
 ![Clicked on session edit button](../../shared/berry_mutation_4.png)
 
