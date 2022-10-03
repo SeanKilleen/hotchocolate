@@ -170,7 +170,7 @@ public class QueryType
 }
 ```
 
-**Why is order important?**
+### Why is order important?
 
 Paging, filtering, and sorting are modular middlewares that form the field resolver pipeline.
 
@@ -543,7 +543,7 @@ public class UserFilterType : FilterInputType<User>
 }
 ```
 
-**Configuring a custom nested filter type:**
+#### Configuring a custom nested filter type
 
 ```csharp
 public class UserFilterType : FilterInputType<User>
@@ -715,7 +715,7 @@ public class UserFilterType : FilterInputType<User>
 
 ## Snake Case
 
-**Configuration**
+`Configuration`:
 You can configure the Snake Case with the `UseSnakeCase` extension method convention on the `IFilterConventionDescriptor`
 
 ```csharp
@@ -793,7 +793,7 @@ input ISingleFilterOfInt16Filter {
 
 ## Pascal Case
 
-**Configuration**
+`Configuration`:
 You can configure the Pascal Case with the `UsePascalCase` extension method convention on the `IFilterConventionDescriptor`
 
 ```csharp
@@ -872,7 +872,7 @@ input ISingleFilterOfInt16Filter {
 
 Hot Chocolate provides different APIs to customize filtering. You can write custom filter input types, customize the inference behavior of .NET Objects, customize the generated expression, or create a custom visitor, and attach your exotic database.
 
-**As this can be a bit overwhelming the following questionnaire might help:**
+As this can be a bit overwhelming the following questionnaire might help:
 
 |                                                                                                                                         |                                 |
 | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
@@ -1261,7 +1261,7 @@ public delegate NameString CreateFieldName(
     FilterOperationKind kind);
 ```
 
-**Configuration**
+`Configuration`:
 
 ```csharp {1, 6}
  // (A)
@@ -1278,7 +1278,7 @@ public delegate NameString CreateFieldName(
             .Name((def, kind) => def.Name + "_niente" )
 ```
 
-**result**
+`result`:
 
 ```graphql {8,18}
 input UserFilter {
@@ -1314,7 +1314,7 @@ input UserFilter {
 In the same way, you can configure names you can also configure the description of operations.
 You can either set the description for all operations of this kind or only for a specific one in combination with a filter kind.
 
-**Configuration**
+`Configuration`:
 
 ```csharp
  descriptor
@@ -1329,7 +1329,7 @@ You can either set the description for all operations of this kind or only for a
             .Description("has to be comparable and not equal")
 ```
 
-**result**
+`result`:
 
 ```graphql {2-4,11-14, 20-22,27-29}
 input UserFilter {
@@ -1379,7 +1379,7 @@ If your database provider does not support certain `IQueryable` methods you can 
 
 There are multiple ways to ignore an operation:
 
-**Configuration**
+`Configuration`:
 
 ```csharp
  descriptor
@@ -1392,7 +1392,7 @@ There are multiple ways to ignore an operation:
           .Ignore();
 ```
 
-**result**
+`result`:
 
 ```graphql {2,4, 8,14,18}
 input UserFilter {
@@ -1452,7 +1452,7 @@ If you just want to build your extension for implicit bindings, you can just out
 
 It makes sense to encapsulate that logic in a FilterFieldDescriptor though. You can reuse this descriptor also for the fluent configuration interface.
 
-**Example**
+`Example`:
 
 ```csharp
 private static bool TryCreateStringFilter(
@@ -1480,17 +1480,9 @@ Hot Chocolate provides fluent interfaces for all its APIs. If you want to create
 
 Here a quick introduction:
 
-_Type_
-
-A type is a description of a GraphQL Type System Object. Hot Chocolate builds types during schema creation. Types specify how a GraphQL Type looks like. It holds, for example, the definition, fields, interfaces, and all life cycle methods. Type do only exist on startup; they do not exist on runtime.
-
-_Type Definition_
-
-Each type has a definition that describes the type. It holds, for example, the name, description, the CLR type and the field definitions. The field definitions describe the fields that are on the type.
-
-_Type Descriptor_
-
-A type descriptor is a fluent interface to describe the type over the definition. The type descriptor does not have access to the type itself. It operates solely on the definition.
+* _Type_: A type is a description of a GraphQL Type System Object. Hot Chocolate builds types during schema creation. Types specify how a GraphQL Type looks like. It holds, for example, the definition, fields, interfaces, and all life cycle methods. Type do only exist on startup; they do not exist on runtime.
+* _Type Definition_: Each type has a definition that describes the type. It holds, for example, the name, description, the CLR type and the field definitions. The field definitions describe the fields that are on the type.
+* _Type Descriptor_: A type descriptor is a fluent interface to describe the type over the definition. The type descriptor does not have access to the type itself. It operates solely on the definition.
 
 In the case of filtering, this works nearly the same. The `FilterInputType` is just an extension of the `InputObjectType`. It also has the same _Definition_. The `FilterInputType` stores `FilterOperationField` on this definition. These are extensions of the normal `InputField`'s and extend it by a `FilterOperationKind`.
 
@@ -1516,7 +1508,7 @@ We have a few case studies that will show you how you can change the inference:
 
 ##### Case Study: String "\_like"
 
-**Situation**
+`Situation`:
 The customer has requested a full-text search of the description field of a product. The product owner has promised the feature to the customer two sprints ago and it has still not been shipped. The UX guru of your company has, slightly under pressure, worked out a solution, and together with the frontend team they have already build a prototype. In the heat of the moment, they did not read the user story correctly and, unfortunately, realized last minute that the current filtering API does not fit their needs. The customer does also has to be able to create complex search queries. `This%Test` should match `This is a Test`. As you come back from lunch a hysterical product owner explains the situation to you. To you, it is immediately clear that this can be easily done by using the SQL `like` operator.
 
 In your codebase you use the `UseFiltering` middleware extensively. In some cases, you also have customized filter types. To cover all possible cases you need
@@ -1525,7 +1517,7 @@ In your codebase you use the `UseFiltering` middleware extensively. In some case
 2. Explicity Binding: `desc.Filter(x => x.Description).AllowLike())`
 3. Expression Visitor: You want to directly filter on the database. You use EF Core.
 
-**Implicit Binding**
+`Implicit Binding`:
 With the conventions, it is easy to add operations on already existing filters. We will first look into the configuration for filter inference and in a second step into the code first extension.
 
 You just need to navigate to the filter you like to modify. `descriptor.Type(FilterKind.String)`. Just add the operation you need with `.Operation(FilterOperationKind.Like)`. The next step is to add factories for the name and the description.
@@ -1546,7 +1538,7 @@ public class CustomConvention : FilterConvention
 }
 ```
 
-**Explicit Binding**
+`Explicit Binding`:
 By extending the filter descriptor of the string filter you can add a fluent extension that seamlessly integrated with the Hot Chocolate API.
 
 //TODO: currently there `StringFilterOperationDescriptor` requires `StringFilterFieldDescriptor` instead of `StringFilterFieldDescriptor` and there is no way to `Allow<T>`
@@ -1583,23 +1575,23 @@ public static class StringLikeFilterExtension
 
 ##### Case Study: DateTime "from", "to"
 
-**Situation**
+`Situation`:
 
 1. Implicit Binding: `[UseFiltering]` should automagically create `DateTimeFilter` and the corresponding "\_from" and "\_to".
 2. Explicity Binding: `desc.Filter(x => x.OrderedAt).AllowFrom().AllowTo())`
 3. Expression Visitor: You want to directly filter on the database. You use EF Core.
 
-**Configuration**
+`Configuration`:
 
 It is slightly more complex to create a custom filter than just modifying existing operations. There are a few different parts that must come together to make this work. Implicit and Explicit Bindings are coming together in this example.
 
 Let's start with the configuration of the convention. By splitting the configuration up into a set of extension methods that can be applied to the convention, it is possible to easily replace sub-components of the extension. e.g. some users might want to use an expression visitor, some others might want to use MognoDB Native.
 
-- `UseDateTimeFilter` adds support for date-time filters and registers the expression visitor for it. Abstraction for `UseDateTimeFilterImplicitly().UseDateTimeExpression()`
+* `UseDateTimeFilter` adds support for date-time filters and registers the expression visitor for it. Abstraction for `UseDateTimeFilterImplicitly().UseDateTimeExpression()`
 
-- `UseDateTimeFilterImplicitly` only registers the configuration of the schema building part of the extension
+* `UseDateTimeFilterImplicitly` only registers the configuration of the schema building part of the extension
 
-- `UseDateTimeExpression` only registers the expression visitor configuration.
+* `UseDateTimeExpression` only registers the expression visitor configuration.
 
 With this separation, a user that prefers to use a custom visitor, can just register the types and skip the expression visitor configuration
 
@@ -1641,7 +1633,7 @@ public static class DateTimeFilterConventionExtensions
 }
 ```
 
-**Create Date Time Filter Implicitly**
+`Create Date Time Filter Implicitly`:
 
 `DateTime` is a new filter. Hot Chocolate is only aware of its existence because of the delegate passed to `AddImplicitFilter`
 
@@ -1667,7 +1659,7 @@ private static bool TryCreateDateTimeFilter(
 ```
 
 TODO: make filters name based
-**Filter Field**
+`Filter Field`:
 
 A filter field is a collection of operations. It holds the configuration of the different operations like _“from”_ and _“to”_. In classic Hot Chocolate fashion there is a descriptor that describes these collections. Hot Chocolate provides the base class `FilterFieldDescriptorBase` you can use as an extension point. There is quite a lot of boilerplate code you need to write. e.g. it makes sense to define an interface for the descriptor.
 You find an example here: //TODO LINK
@@ -1723,7 +1715,7 @@ private DateTimeFilterOperationDescriptor CreateOperation(
     }
 ```
 
-**Filter Operation**
+`Filter Operation`:
 
 In this example; there are two filter operations _"form"_ and _"to"_. The configuration with a descriptor combines explicit and implicit binding. As a base class, you can use `FilterOperationDescriptorBase`.
 Here is the interface that is used in this example:
@@ -1755,7 +1747,7 @@ public interface IDateTimeFilterOperationDescriptor
 
 You can find the implementation of this interface here: //TODO link
 
-**Filter Type Extension**
+`Filter Type Extension`:
 The last missing piece to complete the integration into Hot Chocolate is an extension of `FilterInputType<T>`. This can again be done as a extension method.
 
 ```csharp
@@ -1780,7 +1772,7 @@ public IStringFilterFieldDescriptor Filter(
 
 ##### Case Study: Filters for NetTopologySuite
 
-**Situation**
+`Situation`:
 
 > **Note:** If you are searching for `NetTopologySuite`, they are already implemented. Have a look at//TODO LINK
 
@@ -1855,7 +1847,7 @@ public class DistanceFilterType
 }
 ```
 
-**Convention & Implicit Factory & Type Descriptor**
+`Convention & Implicit Factory & Type Descriptor`:
 
 The configuration of the convention, the implicit type factory and the descriptors are very similar to the the two examples before. To not bloat the documentation with duplication we just refer to these two examples and to the reference implementation here //TODO LINK
 
@@ -1906,13 +1898,13 @@ public class CustomConvention : FilterConvention
 }
 ```
 
-**Visitation Flow**
+`Visitation Flow`:
 
 The expression visitor starts as any other visitor at the node you pass in. Usually, this is the node object value node of the filter argument. It then starts the visitation. Every time the visitor _enters_ or _leaves_ an object field, it looks for a matching configuration. If there is no special _enter_ behavior of a field, the visitor generates the expression for the combination of _kind_ and _operation_.
 
 The next two paragraphs show how the algorithm works in detail.
 
-_Enter_
+`Enter`
 
 On _entering_ a field, the visitor tries to get a `FilterFieldEnter` delegate for the `FilterKind` of the current field. If a delegate was found, executed, and the execution return true, the `Enter` method returns the _action_ specified by the delegate. In all other cases, the visitor tries to execute an `OperationHandler` for the combination `FilterKind` and `OperationKind`. If the handler returns true, the expression returned by the handler is added to the context.
 
@@ -1932,7 +1924,7 @@ On _entering_ a field, the visitor tries to get a `FilterFieldEnter` delegate fo
       1. enqueue _expression_
 1. **return** `SkipAndLeave`
 
-_Leave_
+`Leave`
 
 On _entering_ a field, the visitor tries to get and execute a `FilterFieldLeave` delegate for the `FilterKind` of the current field.
 
@@ -1944,7 +1936,7 @@ On _entering_ a field, the visitor tries to get and execute a `FilterFieldLeave`
 1. If _leaveField_ is not null:
    1. Execute _leaveField_
 
-**Operations**
+`Operations`:
 
 The operation descriptor provides you with the method `Handler`. With this method, you can configure, how the expression for the _operation_ of this filter _kind_ is generated. You have to pass a delegate of the following type:
 
@@ -1989,11 +1981,11 @@ public class CustomConvention : FilterConvention
 
 TODO: add example
 
-**Kind**
+`Kind`:
 
 There are two extension points on each _filter kind_. You can alter the _entering_ of a filter and the _leaving_.
 
-**Enter**
+`Enter`:
 You can configure the entering with the following delegate:
 
 ```csharp
@@ -2014,7 +2006,7 @@ If the field does not return true and a visitor action, the visitor will continu
 | `IQueryableFilterVisitorContext context` | The context that builds up the state |
 | `out ISyntaxVisitorAction? action`       | The visitor action                   |
 
-**Leave**
+`Leave`:
 You can configure the entering with the following delegate:
 
 ```csharp
