@@ -887,7 +887,7 @@ Hot Chocolate provides different APIs to customize filtering. You can write cust
 | _You want to create your own filter types with custom parameters and custom expressions? e.g. GeoJson?_                                 | Filter&nbsp;Conventions         |
 | _You have a database client that does not support `IQueryable` and wants to generate filters for it?_                                   | Custom&nbsp;Visitor             |
 
-## Custom&nbsp;FilterInputType
+## Custom FilterInputType
 
 Under the hood, filtering is based on top of normal Hot Chocolate input types. You can easily customize them with a very familiar fluent interface. The filter input types follow the same `descriptor` scheme as you are used to from the normal filter input types. Just extend the base class `FilterInputType<T>` and override the descriptor method.
 
@@ -980,7 +980,7 @@ input UserFilter {
 }
 ```
 
-**API Documentation**
+### API Documentation
 
 | Method                                                                           | Description                                                                                                                                     |
 | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1048,13 +1048,13 @@ SchemaBuilder.New().AddConvention<CustomConvention>();
 
 With the convention descriptor, you can easily change the argument name of the `FilterInputType`.
 
-**Configuration**
+`Configuration`:
 
 ```csharp
 descriptor.ArgumentName("example_argument_name");
 ```
 
-**Result**
+`Result`:
 
 ```graphql
 type Query {
@@ -1066,13 +1066,13 @@ type Query {
 
 You can change the name of the element of the list type.
 
-**Configuration**
+`Configuration`:
 
 ```csharp
 descriptor.ElementName("example_element_name");
 ```
 
-**Result**
+`Result`:
 
 ```graphql
 input ISingleFilterOfInt16Filter {
@@ -1105,14 +1105,14 @@ public delegate NameString GetFilterTypeName(
     Type entityType);
 ```
 
-**Configuration**
+`Configuration`:
 
 ```csharp
 descriptor.TypeName((context,types) =>
     context.Naming.GetTypeName(entityType, TypeKind.Object) + "Custom");
 ```
 
-**Result**
+`Result`:
 
 ```graphql
 type Query {
@@ -1132,14 +1132,14 @@ public delegate string GetFilterTypeDescription(
     Type entityType);
 ```
 
-**Configuration**
+`Configuration`:
 
 ```csharp
 descriptor.TypeName((context,types) =>
     context.Naming.GetTypeDescription(entityType, TypeKind.Object); + "Custom");
 ```
 
-**Result**
+`Result`:
 
 ```graphql
 """
@@ -1157,13 +1157,13 @@ input UserFilter {
 
 Hot Chocolate shippes with well-defined defaults. To start from scratch, you need to call `Reset()`first.
 
-**Configuration**
+`Configuration`:
 
 ```csharp
 descriptor.Reset();
 ```
 
-**Result**
+`Result`:
 
 > **⚠ Note:** You will need to add a complete configuration, otherwise the filter will not work as desired!
 
@@ -1174,7 +1174,7 @@ The convention provides a familiar interface to the type configuration. We recom
 
 Filtering has two core components at its heart. First, you have the inference of filters based on .NET types. The second part is an interceptor that translates the filters to the desired output and applies it to the resolver pipeline. These two parts can (and have to) be configured completely independently. With this separation, it is possible to easily extend the behavior. The descriptor is designed to be extendable by extension methods.
 
-**It's fluent**
+### It's fluent
 
 Filter conventions are a completely fluent experience. You can write a whole configuration as a chain of method calls.
 This provides a very clean interface, but can, on the other hand, get messy quickly. We recommend using indentation to keep the configuration comprehensible.
