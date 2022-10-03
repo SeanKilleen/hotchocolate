@@ -16,13 +16,13 @@ Setting up authentication is largely the same as in any other ASP.NET Core appli
 
 **In the following example we are using JWTs, but we could use any other authentication scheme supported by ASP.NET Core.**
 
-1. Install the `Microsoft.AspNetCore.Authentication.JwtBearer` package
+* Install the `Microsoft.AspNetCore.Authentication.JwtBearer` package
 
 ```bash
 dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 
-2. Register the JWT authentication scheme
+* Register the JWT authentication scheme
 
 ```csharp
 public class Startup
@@ -51,7 +51,7 @@ public class Startup
 
 > ⚠️ Note: This is an example configuration that's not intended for use in a real world application.
 
-3. Register the ASP.NET Core authentication middleware with the request pipeline by calling `UseAuthentication`
+* Register the ASP.NET Core authentication middleware with the request pipeline by calling `UseAuthentication`
 
 ```csharp
 public class Startup
@@ -74,7 +74,7 @@ The above takes care of parsing and validating an incoming HTTP request.
 
 In order to make the authentication result available to our resolvers, we need to complete some additional, Hot Chocolate specific steps.
 
-1. Install the `HotChocolate.AspNetCore.Authorization` package
+* Install the `HotChocolate.AspNetCore.Authorization` package
 
 ```bash
 dotnet add package HotChocolate.AspNetCore.Authorization
@@ -82,7 +82,7 @@ dotnet add package HotChocolate.AspNetCore.Authorization
 
 > ⚠️ Note: All `HotChocolate.*` packages need to have the same version.
 
-2. Call `AddAuthorization()` on the `IRequestExecutorBuilder`
+* Call `AddAuthorization()` on the `IRequestExecutorBuilder`
 
 ```csharp
 services

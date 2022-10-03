@@ -112,7 +112,7 @@ This also benefits the execution engine since it knows which services are used a
 
 In order to override the default dependency injection container you need to override the `DefaultHttpRequestInterceptor` and the `DefaultSocketSessionInterceptor`.
 
-1. Inherit from `DefaultHttpRequestInterceptor` and override `OnCreateAsync`.
+* Inherit from `DefaultHttpRequestInterceptor` and override `OnCreateAsync`.
 
 ```csharp
 public class CustomHttpRequestInterceptor : DefaultHttpRequestInterceptor
@@ -129,7 +129,7 @@ public class CustomHttpRequestInterceptor : DefaultHttpRequestInterceptor
 }
 ```
 
-2. Register `CustomHttpRequestInterceptor` with the root `ServiceCollection`.
+* Register `CustomHttpRequestInterceptor` with the root `ServiceCollection`.
 
 ```csharp
 services
@@ -137,7 +137,7 @@ services
     .AddHttpRequestInterceptor<CustomHttpRequestInterceptor>();
 ```
 
-3. Next, inherit from `DefaultSocketSessionInterceptor` and override `OnRequestAsync`.
+* Next, inherit from `DefaultSocketSessionInterceptor` and override `OnRequestAsync`.
 
 ```csharp
 public class CustomSocketSessionInterceptor : DefaultSocketSessionInterceptor
@@ -153,7 +153,7 @@ public class CustomSocketSessionInterceptor : DefaultSocketSessionInterceptor
 }
 ```
 
-4. Last, register your `CustomSocketSessionInterceptor` with the root `ServiceCollection`.
+* Last, register your `CustomSocketSessionInterceptor` with the root `ServiceCollection`.
 
 ```csharp
 services

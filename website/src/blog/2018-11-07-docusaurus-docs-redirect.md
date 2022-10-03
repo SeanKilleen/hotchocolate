@@ -17,7 +17,7 @@ I try to help everyone saving their time and making the experience with _Docusau
 
 So here is my solution.
 
-1. Go to your `website\siteConfig.js` file and update the entry doc link in the `headerLinks`
+* Go to your `website\siteConfig.js` file and update the entry doc link in the `headerLinks`
    section by adding `href: "/docs"` to it.
 
 **Before**
@@ -49,7 +49,7 @@ So here is my solution.
 }
 ```
 
-2. Create a new file called `docs.js` under the `website\pages\en` path and insert the following
+* Create a new file called `docs.js` under the `website\pages\en` path and insert the following
    code.
 
 ```javascript

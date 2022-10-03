@@ -21,13 +21,13 @@ The Strawberry Shake tool will help you to setup your project to create a GraphQ
 
 Open your preferred terminal and select a directory where you want to add the code of this tutorial.
 
-1. Create a dotnet tool-manifest.
+* Create a dotnet tool-manifest.
 
 ```bash
 dotnet new tool-manifest
 ```
 
-2. Install the Strawberry Shake tools.
+* Install the Strawberry Shake tools.
 
 ```bash
 dotnet tool install StrawberryShake.Tools --local
@@ -37,19 +37,19 @@ dotnet tool install StrawberryShake.Tools --local
 
 Next, we will create our console project so that we have a little playground.
 
-1. First, a new solution called `Demo.sln`.
+* First, a new solution called `Demo.sln`.
 
 ```bash
 dotnet new sln -n Demo
 ```
 
-2. Create a new console application.
+* Create a new console application.
 
 ```bash
 dotnet new console -n Demo
 ```
 
-3. Add the project to the solution `Demo.sln`.
+* Add the project to the solution `Demo.sln`.
 
 ```bash
 dotnet sln add ./Demo
@@ -59,13 +59,13 @@ dotnet sln add ./Demo
 
 Strawberry Shake supports multiple GraphQL transport protocols. In this example we will use the standard GraphQL over HTTP protocol to interact with our GraphQL server.
 
-1. Add the `StrawberryShake.Transport.Http` package to your project.
+* Add the `StrawberryShake.Transport.Http` package to your project.
 
 ```bash
 dotnet add Demo package StrawberryShake.Transport.Http
 ```
 
-2. Add the `StrawberryShake.CodeGeneration.CSharp.Analyzers` package to your project in order to add our code generation.
+* Add the `StrawberryShake.CodeGeneration.CSharp.Analyzers` package to your project in order to add our code generation.
 
 ```bash
 dotnet add Demo package StrawberryShake.CodeGeneration.CSharp.Analyzers
@@ -73,13 +73,13 @@ dotnet add Demo package StrawberryShake.CodeGeneration.CSharp.Analyzers
 
 When using the HTTP protocol we also need the HttpClientFactory and the Microsoft dependency injection.
 
-3. Add the `Microsoft.Extensions.DependencyInjection` package to your project in order to add our code generation.
+* Add the `Microsoft.Extensions.DependencyInjection` package to your project in order to add our code generation.
 
 ```bash
 dotnet add Demo package Microsoft.Extensions.DependencyInjection
 ```
 
-3. Add the `Microsoft.Extensions.Http` package to your project in order to add our code generation.
+* Add the `Microsoft.Extensions.Http` package to your project in order to add our code generation.
 
 ```bash
 dotnet add Demo package Microsoft.Extensions.Http
@@ -93,13 +93,13 @@ In this tutorial we will use our GraphQL workshop to create a list of sessions t
 
 > If you want to have a look at our GraphQL workshop head over [here](https://github.com/ChilliCream/graphql-workshop).
 
-1. Add the conference client to your console application.
+* Add the conference client to your console application.
 
 ```bash
 dotnet graphql init https://workshop.chillicream.com/graphql/ -n ConferenceClient -p ./Demo
 ```
 
-2. Customize the namespace of the generated client to be `Demo.GraphQL`. For this head over to the `.graphqlrc.json` and insert a namespace property to the `StrawberryShake` section.
+* Customize the namespace of the generated client to be `Demo.GraphQL`. For this head over to the `.graphqlrc.json` and insert a namespace property to the `StrawberryShake` section.
 
 ```json
 {
@@ -118,13 +118,13 @@ dotnet graphql init https://workshop.chillicream.com/graphql/ -n ConferenceClien
 
 Now that everything is in place let us write our first query to ask for a list of session titles of the conference API.
 
-3. Choose your favorite IDE and the solution. If your are using VSCode do the following:
+* Choose your favorite IDE and the solution. If your are using VSCode do the following:
 
 ```bash
 code ./Demo
 ```
 
-4. Create new query document `GetSessions.graphql` with the following content:
+* Create new query document `GetSessions.graphql` with the following content:
 
 ```graphql
 query GetSessions {
@@ -136,7 +136,7 @@ query GetSessions {
 }
 ```
 
-5. Compile your project.
+* Compile your project.
 
 ```bash
 dotnet build
@@ -146,7 +146,7 @@ With the project compiled you now should see a directory `Generated`. The genera
 
 ![Visual Studio code showing the generated directory.](../../shared/berry_console_generated.png)
 
-1. Head over to the `Program.cs` and add the new `ConferenceClient` to the dependency injection.
+* Head over to the `Program.cs` and add the new `ConferenceClient` to the dependency injection.
 
 > In some IDEs it is still necessary to reload the project after the code was generated to update the IntelliSense. So, if you have any issues in the next step with IntelliSense just reload the project and everything should be fine.
 
@@ -179,9 +179,9 @@ namespace Demo
 
 In this section we will perform a simple fetch with our `ConferenceClient` and output the result to the console.
 
-1. Head over to `Program.cs`.
+* Head over to `Program.cs`.
 
-2. Add the following code to your main method to execute the `GetSessions` query.
+* Add the following code to your main method to execute the `GetSessions` query.
 
 ```csharp
 static async Task Main(string[] args)
@@ -206,6 +206,6 @@ static async Task Main(string[] args)
 }
 ```
 
-3. Start the console application with `dotnet run --project ./Demo` and see if your code works.
+* Start the console application with `dotnet run --project ./Demo` and see if your code works.
 
 ![Started console application that shows a list of sessions](../../shared/berry_console_session_list.png)

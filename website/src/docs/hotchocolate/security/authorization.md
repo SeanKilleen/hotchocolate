@@ -14,7 +14,7 @@ Authentication is a prerequisite of Authorization, as we first need to validate 
 
 After we have successfully setup authentication, there are only a few things left to do.
 
-1. Install the `HotChocolate.AspNetCore.Authorization` package
+* Install the `HotChocolate.AspNetCore.Authorization` package
 
 ```bash
 dotnet add package HotChocolate.AspNetCore.Authorization
@@ -22,7 +22,7 @@ dotnet add package HotChocolate.AspNetCore.Authorization
 
 > ⚠️ Note: All `HotChocolate.*` packages need to have the same version.
 
-2. Register the necessary ASP.NET Core services
+* Register the necessary ASP.NET Core services
 
 ```csharp
 public class Startup
@@ -43,7 +43,7 @@ public class Startup
 
 > ⚠️ Note: We need to call `AddAuthorization()` on the `IServiceCollection`, to register the services needed by ASP.NET Core, and on the `IRequestExecutorBuilder` to register the `@authorize` directive and middleware.
 
-3. Register the ASP.NET Core authorization middleware with the request pipeline by calling `UseAuthorization`
+* Register the ASP.NET Core authorization middleware with the request pipeline by calling `UseAuthorization`
 
 ```csharp
 public class Startup

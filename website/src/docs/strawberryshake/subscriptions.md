@@ -16,7 +16,7 @@ GraphQL subscriptions can be used through reactive APIs like queries. Instead of
 
 To create a subscription, we start with everything in Strawberry Shake by creating a GraphQL file.
 
-1. Create a new GraphQL file and call it `OnSessionUpdated` with the following content.
+*  Create a new GraphQL file and call it `OnSessionUpdated` with the following content.
 
 ```graphql
 subscription OnSessionUpdated {
@@ -26,11 +26,11 @@ subscription OnSessionUpdated {
 }
 ```
 
-2. Add the [StrawberryShake.Transport.WebSockets](https://www.nuget.org/packages/StrawberryShake.Transport.WebSockets) package to your project.
+*  Add the [StrawberryShake.Transport.WebSockets](https://www.nuget.org/packages/StrawberryShake.Transport.WebSockets) package to your project.
 
-3. Build your project so that the code-generator kicks in.
+*  Build your project so that the code-generator kicks in.
 
-4. Configure the transport settings for the WebSocket.
+*  Configure the transport settings for the WebSocket.
 
 ```csharp
 builder.Services
@@ -39,7 +39,7 @@ builder.Services
   .ConfigureWebSocketClient(client => client.Uri = new Uri("ws://localhost:5050/graphql"));
 ```
 
-5. A subscription can now be used like any other query by subscribing to it.
+*  A subscription can now be used like any other query by subscribing to it.
 
 ```csharp
 var session =
