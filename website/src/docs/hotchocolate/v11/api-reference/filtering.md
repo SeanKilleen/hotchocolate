@@ -2,7 +2,7 @@
 title: Filtering
 ---
 
-**What are filters?**
+## What are filters?
 
 With Hot Chocolate filters, you can expose complex filter objects through your GraphQL API that translates to native database queries.
 
@@ -40,7 +40,7 @@ input FooFilter {
 }
 ```
 
-**So how can we get started with filters?**
+## So how can we get started with filters?
 
 Getting started with filters is very easy, especially if you do not want to explicitly define filters or customize anything.
 
@@ -52,7 +52,7 @@ Hot Chocolate will infer the filters directly from your .Net Model and then use 
 
 In the following example, the person resolver returns the `IQueryable` representing the data source. The `IQueryable` represents a not executed database query on which Hot Chocolate can apply filters.
 
-**Code First**
+### Code First
 
 The next thing to note is the `UseFiltering` extension method which adds the filter argument to the field and a middleware that can apply those filters to the `IQueryable`. The execution engine will, in the end, execute the `IQueryable` and fetch the data.
 
@@ -77,7 +77,7 @@ public class Query
 }
 ```
 
-**Pure Code First**
+#### Pure Code First
 
 The field descriptor attribute `[UseFiltering]` does apply the extension method `UseFiltering()` on the field descriptor.
 
@@ -92,7 +92,7 @@ public class Query
 }
 ```
 
-**Schema First**
+### Schema First
 
 > ⚠️ **Note:** Schema first does currently not support filtering!
 
@@ -170,7 +170,7 @@ public class QueryType
 }
 ```
 
-**Why is order important?**
+### Why is order important?**
 
 Paging, filtering, and sorting are modular middlewares that form the field resolver pipeline.
 
@@ -543,7 +543,7 @@ public class UserFilterType : FilterInputType<User>
 }
 ```
 
-**Configuring a custom nested filter type:**
+#### Configuring a custom nested filter type
 
 ```csharp
 public class UserFilterType : FilterInputType<User>
@@ -715,7 +715,7 @@ public class UserFilterType : FilterInputType<User>
 
 ## Snake Case
 
-**Configuration**
+### Configuration
 You can configure the Snake Case with the `UseSnakeCase` extension method convention on the `IFilterConventionDescriptor`
 
 ```csharp
@@ -793,7 +793,7 @@ input ISingleFilterOfInt16Filter {
 
 ## Pascal Case
 
-**Configuration**
+### Configuration
 You can configure the Pascal Case with the `UsePascalCase` extension method convention on the `IFilterConventionDescriptor`
 
 ```csharp
@@ -872,7 +872,7 @@ input ISingleFilterOfInt16Filter {
 
 Hot Chocolate provides different APIs to customize filtering. You can write custom filter input types, customize the inference behavior of .NET Objects, customize the generated expression, or create a custom visitor, and attach your exotic database.
 
-**As this can be a bit overwhelming the following questionnaire might help:**
+As this can be a bit overwhelming the following questionnaire might help:
 
 |                                                                                                                                         |                                 |
 | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
@@ -980,7 +980,7 @@ input UserFilter {
 }
 ```
 
-**API Documentation**
+### API Documentation
 
 | Method                                                                           | Description                                                                                                                                     |
 | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1048,7 +1048,7 @@ SchemaBuilder.New().AddConvention<CustomConvention>();
 
 With the convention descriptor, you can easily change the argument name of the `FilterInputType`.
 
-**Configuration**
+Configuration**
 
 ```csharp
 descriptor.ArgumentName("example_argument_name");
@@ -1174,7 +1174,7 @@ The convention provides a familiar interface to the type configuration. We recom
 
 Filtering has two core components at its heart. First, you have the inference of filters based on .NET types. The second part is an interceptor that translates the filters to the desired output and applies it to the resolver pipeline. These two parts can (and have to) be configured completely independently. With this separation, it is possible to easily extend the behavior. The descriptor is designed to be extendable by extension methods.
 
-**It's fluent**
+### It's fluent
 
 Filter conventions are a completely fluent experience. You can write a whole configuration as a chain of method calls.
 This provides a very clean interface, but can, on the other hand, get messy quickly. We recommend using indentation to keep the configuration comprehensible.

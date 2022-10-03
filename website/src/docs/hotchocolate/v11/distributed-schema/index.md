@@ -15,7 +15,7 @@ Every Hot Chocolate GraphQL server can be used for schema stitching or federatio
 You can also use both approaches on the same gateway.
 You can for example stitch third-party services and use federations for domain services.
 
-_Schema of the Person Service_
+`Schema of the Person Service`:
 
 ```sdl
 type Query {
@@ -28,7 +28,7 @@ type Person {
 }
 ```
 
-_Schema of the Address Service_
+`Schema of the Address Service`:
 
 ```sdl
 type Query {
@@ -41,7 +41,7 @@ type Address {
 }
 ```
 
-_Gateway Service_
+`Gateway Service`:
 
 ```sdl
 type Query {

@@ -26,19 +26,19 @@ In the following tutorial, we will walk you through creating a Hot Chocolate Gra
 
 Open your preferred terminal and select a directory where you want to add the code of this tutorial.
 
-* Install the Hot Chocolate GraphQL server template.
+1. Install the Hot Chocolate GraphQL server template.
 
 ```bash
 dotnet new -i HotChocolate.Templates.Server
 ```
 
-* Create a new Hot Chocolate GraphQL server project.
+2. Create a new Hot Chocolate GraphQL server project.
 
 ```bash
 dotnet new graphql
 ```
 
-* Add the in-memory query storage to your project.
+3. Add the in-memory query storage to your project.
 
 ```bash
 dotnet add package HotChocolate.PersistedQueries.InMemory
@@ -48,7 +48,7 @@ dotnet add package HotChocolate.PersistedQueries.InMemory
 
 Next, we want to configure our GraphQL server to be able to handle automatic persisted query requests. For this, we need to register the in-memory query storage and configure the automatic persisted query request pipeline.
 
-* Configure GraphQL server to use the automatic persisted query pipeline.
+1. Configure GraphQL server to use the automatic persisted query pipeline.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -60,7 +60,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-* Next, register the in-memory query storage.
+2. Next, register the in-memory query storage.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -73,7 +73,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-* Last but not least, we need to add the Microsoft Memory Cache, which the in-memory query storage will use as the in-memory key-value store.
+3. Last but not least, we need to add the Microsoft Memory Cache, which the in-memory query storage will use as the in-memory key-value store.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -94,21 +94,21 @@ public void ConfigureServices(IServiceCollection services)
 
 Now that our server is set up with automatic persisted queries, let us verify that it works as expected. We can do that by just using our console and a tool called `curl`. For our example, we will use a dummy query `{__typename}` with an MD5 hash serialized to base64 as a query id `71yeex4k3iYWQgg9TilDIg==`. We will test the full automatic persisted query flow and walk you through the responses.
 
-* Start the GraphQL server.
+1. Start the GraphQL server.
 
 ```bash
 dotnet run
 ```
 
-* First, we will ask our GraphQL server to execute our query with the optimized request containing only the query hash. At this point, the server will not know this query and hast to return an error indicating this.
+2. First, we will ask our GraphQL server to execute our query with the optimized request containing only the query hash. At this point, the server will not know this query and hast to return an error indicating this.
 
-**Request**
+`Request`:
 
 ```bash
 curl -g 'http://localhost:5000/graphql/?extensions={"persistedQuery":{"version":1,"md5Hash":"71yeex4k3iYWQgg9TilDIg=="}}'
 ```
 
-**Response**
+`Response`:
 
 The response indicates, as expected, that this query is unknown so far.
 
@@ -123,15 +123,15 @@ The response indicates, as expected, that this query is unknown so far.
 }
 ```
 
-* Next, we want to store our dummy query on the server. We will send in the hash as before but now also provide the query parameter with the full GraphQL query string.
+3. Next, we want to store our dummy query on the server. We will send in the hash as before but now also provide the query parameter with the full GraphQL query string.
 
-**Request**
+`Request`:
 
 ```bash
 curl -g 'http://localhost:5000/graphql/?query={__typename}&extensions={"persistedQuery":{"version":1,"md5Hash":"71yeex4k3iYWQgg9TilDIg=="}}'
 ```
 
-**Response**
+`Response`:
 
 Our GraphQL server will respond with the query result and indicate that the query was stored on the server `"persisted": true`.
 
@@ -147,15 +147,15 @@ Our GraphQL server will respond with the query result and indicate that the quer
 }
 ```
 
-* Last but not least, we will verify that we can now use our optimized request by executing our initial request containing only the query hash.
+4. Last but not least, we will verify that we can now use our optimized request by executing our initial request containing only the query hash.
 
-**Request**
+`Request`:
 
 ```bash
 curl -g 'http://localhost:5000/graphql/?extensions={"persistedQuery":{"version":1,"md5Hash":"71yeex4k3iYWQgg9TilDIg=="}}'
 ```
 
-**Response**
+`Response`:
 
 This time the server knows the query and will respond with the simple result of this query.
 
@@ -169,7 +169,7 @@ This time the server knows the query and will respond with the simple result of 
 
 Hot Chocolate server is configured to use by default the MD5 hashing algorithm, which is serialized to a base64 string. Hot Chocolate server comes out of the box with support for MD5, SHA1, and SHA256 and can serialize the hash to base64 or hex. In this step, we will walk you through changing the hashing algorithm to SHA256 with a hex serialization.
 
-* Add the SHA256 document hash provider to your Hot Chocolate GraphQL server's global services.
+1. Add the SHA256 document hash provider to your Hot Chocolate GraphQL server's global services.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -187,21 +187,21 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-* Start the GraphQL server.
+2. Start the GraphQL server.
 
 ```bash
 dotnet run
 ```
 
-* Next, let us verify that our server now operates with the new hash provider and the new hash serialization format. For this we will store again a query on the server, but this time our hash string will look like the following: `7f56e67dd21ab3f30d1ff8b7bed08893f0a0db86449836189b361dd1e56ddb4b`.
+3. Next, let us verify that our server now operates with the new hash provider and the new hash serialization format. For this we will store again a query on the server, but this time our hash string will look like the following: `7f56e67dd21ab3f30d1ff8b7bed08893f0a0db86449836189b361dd1e56ddb4b`.
 
-**Request**
+`Request`:
 
 ```bash
 curl -g 'http://localhost:5000/graphql/?query={__typename}&extensions={"persistedQuery":{"version":1,"sha256Hash":"7f56e67dd21ab3f30d1ff8b7bed08893f0a0db86449836189b361dd1e56ddb4b"}}'
 ```
 
-**Response**
+`Response`:
 
 ```json
 {
@@ -219,19 +219,19 @@ curl -g 'http://localhost:5000/graphql/?query={__typename}&extensions={"persiste
 
 If you run multiple Hot Chocolate server instances and want to preserve stored queries after a server restart, you can opt to use a file system based query storage or opt to use a Redis cache. Hot Chocolate server supports both.
 
-* Setup a Redis docker container.
+1. Setup a Redis docker container.
 
 ```bash
 docker run --name redis-stitching -p 7000:6379 -d redis
 ```
 
-* Add the Redis persisted query storage package to your server.
+2. Add the Redis persisted query storage package to your server.
 
 ```bash
 dotnet add package HotChocolate.PersistedQueries.Redis
 ```
 
-* Next, we need to configure the server to use Redis as query storage.
+3. Next, we need to configure the server to use Redis as query storage.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -248,21 +248,21 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-* Start the GraphQL server.
+4. Start the GraphQL server.
 
 ```bash
 dotnet run
 ```
 
-* Now, let us verify again if our server works correctly by storing our query first.
+5. Now, let us verify again if our server works correctly by storing our query first.
 
-**Request**
+`Request`:
 
 ```bash
 curl -g 'http://localhost:5000/graphql/?query={__typename}&extensions={"persistedQuery":{"version":1,"sha256Hash":"7f56e67dd21ab3f30d1ff8b7bed08893f0a0db86449836189b361dd1e56ddb4b"}}'
 ```
 
-**Response**
+`Response`:
 
 ```json
 {
@@ -276,23 +276,23 @@ curl -g 'http://localhost:5000/graphql/?query={__typename}&extensions={"persiste
 }
 ```
 
-* Stop your GraphQL server.
+6. Stop your GraphQL server.
 
-* Start your GraphQL server again.
+7. Start your GraphQL server again.
 
 ```bash
 dotnet run
 ```
 
-* Let us execute the optimized query to see if our query was correctly stored on our Redis cache.
+8. Let us execute the optimized query to see if our query was correctly stored on our Redis cache.
 
-**Request**
+`Request`:
 
 ```bash
 curl -g 'http://localhost:5000/graphql/?extensions={"persistedQuery":{"version":1,"sha256Hash":"7f56e67dd21ab3f30d1ff8b7bed08893f0a0db86449836189b361dd1e56ddb4b"}}'
 ```
 
-**Response**
+`Response`:
 
 ```json
 { "data": { "__typename": "Query" } }

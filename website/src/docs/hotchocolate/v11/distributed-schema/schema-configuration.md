@@ -342,7 +342,7 @@ extend type Query {
 }
 ```
 
-**UseRequest**
+`UseRequest`:
 
 ```csharp
 services
@@ -355,7 +355,7 @@ services
     ...
 ```
 
-**RequestInterceptor**
+`RequestInterceptor`:
 
 ```csharp
 public class RequestInterceptor : DefaultHttpRequestInterceptor
@@ -382,7 +382,7 @@ services
     ...
 ```
 
-**Static Context Data**
+`Static Context Data`:
 Context data can also be set directly on the schema builder.
 
 ```csharp
@@ -402,7 +402,7 @@ Let's assume you have a message and account service.
 The message holds a field `messageInfo` and knows the id of the creator of the message.
 You want to extend the `messageInfo` with the user from the account service.
 
-**Schema**
+`Schema`:
 
 ```sdl
 type Message {
@@ -416,7 +416,7 @@ type MessageInfo {
 }
 ```
 
-**Extensions**
+`Extensions`:
 
 ```sdl
 extend type MessageInfo {
@@ -424,7 +424,7 @@ extend type MessageInfo {
 }
 ```
 
-**UseField**
+`UseField`:
 
 This middleware is executed for each field.
 
@@ -446,7 +446,7 @@ services
         })
 ```
 
-**Type Interceptor**
+`Type Interceptor`:
 
 The middleware of `UseField` is executed on each field and created overhead.
 It would be better if the middleware is only applied to the field that needs it.
@@ -500,7 +500,7 @@ Type extensions can either be strings, files or resources
 
 ### Schema Stitching
 
-**Gateway:**
+`Gateway:`:
 
 ```csharp
 services
@@ -513,7 +513,7 @@ services
 
 ### Schema Federations
 
-**Inventory Domain Service:**
+`Inventory Domain Service:`:
 
 ```csharp
 services

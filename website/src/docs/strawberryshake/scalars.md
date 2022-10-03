@@ -86,7 +86,7 @@ Use the base class `ScalarSerializer<TValue>` or `ScalarSerializer<TSerializer, 
 
 If the serialization and the value type are identical, you can just use the `ScalarSerializer` base class.
 
-_schema.extensions.graphql_
+`schema.extensions.graphql`;
 
 ```graphql
 extend scalar PositiveInt
@@ -94,7 +94,7 @@ extend scalar PositiveInt
   @runtimeType(name: "global::System.Int32")
 ```
 
-_serializer_
+`serializer`:
 
 ```csharp
 public class PositiveIntSerializer : ScalarSerializer<int>
@@ -108,7 +108,7 @@ public class PositiveIntSerializer : ScalarSerializer<int>
 }
 ```
 
-_configuration_
+`configuration`:
 
 ```csharp
 serviceCollection.AddSerializer<PositiveIntSerializer>();
@@ -125,7 +125,7 @@ Json objects are internally handled as `JsonElement` provided by `System.Text.Js
 > Note: If you want the raw json from the `JsonElement` use `GetRawText`.
 > In order to have a custom serializer you need to specify runtime and serialization type.
 
-_schema.extensions.graphql_
+`schema.extensions.graphql`:
 
 ```graphql
 extend scalar Any
@@ -135,7 +135,7 @@ extend scalar Any
 
 Also you need to provide a custom serializer to handle the parsing of the `JsonElement` to whatever type you desire.
 
-_serializer_
+`serializer`:
 
 ```csharp
 public class MyJsonSerializer : ScalarSerializer<JsonElement, object>
@@ -160,7 +160,7 @@ public class MyJsonSerializer : ScalarSerializer<JsonElement, object>
 
 Your schema contains `X509Certificate`'s. These are serialized to `Base64` on the server and transported as strings.
 
-_schema.extensions.graphql_
+`schema.extensions.graphql`:
 
 ```graphql
 extend scalar X509Certificate
@@ -170,7 +170,7 @@ extend scalar X509Certificate
   )
 ```
 
-_serializer_
+`serializer`:
 
 ```csharp
 public class X509CertificateSerializer
@@ -197,7 +197,7 @@ public class X509CertificateSerializer
 }
 ```
 
-_configuration_
+`configuration`:
 
 ```csharp
 serviceCollection.AddSerializer<X509CertificateSerializer>();

@@ -270,13 +270,13 @@ services.AddGraphQLServer()
 
 With the convention descriptor, you can easily change the argument name of the `FilterInputType`.
 
-**Configuration**
+`Configuration`:
 
 ```csharp
 descriptor.ArgumentName("example_argument_name");
 ```
 
-**Result**
+`Result`:
 
 ```sdl
 type Query {
@@ -292,7 +292,7 @@ type Query {
 
 By default only the `string` type is bound explicitly. If you want to configure sorting globally you are free to bind additional types.
 
-**Configuration**
+`Configuration`:
 
 ```csharp
 public class CustomSortInputType
@@ -313,7 +313,7 @@ public class CustomConvention
 }
 ```
 
-**Result**
+`Result`:
 
 ```sdl
 
@@ -340,7 +340,7 @@ enum SortEnumType {
 For fields all fields where no explicit binding is found, a default is applied. This default is `DefaultSortEnumType`.
 This can be configured with the method `DefaultBinding`.
 
-**Configuration**
+`Configuration`:
 
 ```csharp
 public class CustomConvention : SortConvention
@@ -352,7 +352,7 @@ public class CustomConvention : SortConvention
 }
 ```
 
-**Result**
+`Result`:
 
 ```sdl
 type Query {

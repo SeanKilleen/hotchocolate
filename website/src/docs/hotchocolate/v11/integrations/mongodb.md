@@ -77,7 +77,7 @@ query GetPersons {
 }
 ```
 
-_Mongo Query_
+`Mongo Query`
 
 ```json
 {
@@ -106,7 +106,7 @@ services
 
 Your sorting is now converted to `BsonDocument`s and applied to the executable.
 
-_GraphQL Query:_
+`GraphQL Query:`
 
 ```graphql
 query GetPersons {
@@ -120,7 +120,7 @@ query GetPersons {
 }
 ```
 
-_Mongo Query_
+`Mongo Query`
 
 ```json
 {
@@ -149,7 +149,7 @@ Projections do not always lead to a performance increase.
 Even though MongoDB processes and transfers less data, it more often than not harms query performance.
 This [Medium article by Tek Loon](https://betterprogramming.pub/improve-mongodb-performance-using-projection-c08c38334269) explains how and when to use projections well.
 
-_GraphQL Query:_
+`GraphQL Query:`
 
 ```graphql
 query GetPersons {
@@ -162,7 +162,7 @@ query GetPersons {
 }
 ```
 
-_Mongo Query_
+`Mongo Query:`
 
 ```json
 {

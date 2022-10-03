@@ -2,7 +2,7 @@
 title: "Overview"
 ---
 
-**Improve performance by sending smaller requests and pre-compile queries**
+## Improve performance by sending smaller requests and pre-compile queries
 
 The size of individual GraphQL requests can become a major pain point. This is not only true for the transport but also introduces inefficiencies for the server since large requests need to be parsed and validated. To solve this problem, Hot Chocolate has implemented persisted queries. With persisted queries, we can store queries on the server in a key-value store. When we want to execute a persisted query, we can send the key under which the query is stored instead of the query itself. This saves precious bandwidth and also improves execution time since the server will validate, parse, and compile persisted queries just once.
 
