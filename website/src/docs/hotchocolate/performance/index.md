@@ -4,7 +4,7 @@ title: "Overview"
 
 In this section we will look at some ways of how we can improve the performance of our Hot Chocolate GraphQL server.
 
-# Startup performance
+## Startup performance
 
 The first GraphQL request issued against a Hot Chocolate server will most of the time take a little longer than subsequent requests. This is because Hot Chocolate has to build up the GraphQL schema and prepare for the execution of requests.
 
@@ -24,7 +24,7 @@ public class Startup
 
 This will create the schema and warmup the request executor as soon as the app starts. This also brings the added benefit that schema errors are surfaced at app startup and not on the first request.
 
-# Persisted queries
+## Persisted queries
 
 The size of individual GraphQL requests can become a major pain point. This is not only true for the transport but also the server, since large requests need to be parsed and validated often. To solve this problem, Hot Chocolate implements persisted queries. With persisted queries, we can store queries on the server in a key-value store. When we want to execute a persisted query, we can send the key under which the query is stored instead of the query itself. This saves precious bandwidth and also improves execution time since the server will validate, parse, and compile persisted queries just once.
 

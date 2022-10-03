@@ -18,7 +18,7 @@ NetTopologySuite as its data representation.
 The package `HotChocolate.Spatial` integrates NetTopologySuite into HotChocolate. With this package your resolvers
 can return NetTopologySuite shapes and they will be transformed into GeoJSON.
 
-# Getting Started
+## Getting Started
 
 You first need to add the `HotChocolate.Spatial` package reference to your project. You can do this with the `dotnet` cli:
 
@@ -136,7 +136,7 @@ type Query {
 }
 ```
 
-# Spatial Types
+## Spatial Types
 
 Hot Chocolate supports GeoJSON input and output types. There is also a GeoJSON scalar to make generic inputs possible.
 
@@ -194,7 +194,7 @@ This scalar should be used with caution. Input and output types are much more ex
 scalar Geometry
 ```
 
-# Projections
+## Projections
 
 To project spatial types, a special handler is needed. This handler can be registered on the schema with `.AddSpatialProjections()`
 
@@ -238,7 +238,7 @@ SELECT p."Id", p."Location", p."Name"
 FROM "Pubs" AS p
 ```
 
-# Filtering
+## Filtering
 
 Entity framework supports filtering on NetTopologySuite objects.
 `HotChocolate.Spatial` provides handlers for filtering spatial types on `IQueryable`.
@@ -590,7 +590,7 @@ FROM "Counties" AS c
 WHERE NOT ST_Within(c."Area", @__p_0)
 ```
 
-# What's next?
+## What's next?
 
 In upcoming releases spatial data will get re-projection features and sorting capabilities.
 

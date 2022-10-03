@@ -60,6 +60,6 @@ services
 
 For further configuration with extension files, have a look at [Schema Configuration](/docs/hotchocolate/distributed-schema/schema-configuration)
 
-# Example
+## Example
 
 You can find a full schema stitching example here [Centralized Schema Stitching](https://github.com/ChilliCream/hotchocolate-examples/tree/master/misc/Stitching/centralized)

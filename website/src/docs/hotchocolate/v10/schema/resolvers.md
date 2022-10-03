@@ -14,7 +14,7 @@ It is important to know that we can mix both approaches. Moreover, resolvers are
 
 > More about what a field-middleware can do can be found [here](/docs/hotchocolate/v10/execution-engine).
 
-# Schema-First
+## Schema-First
 
 With Hot Chocolate we have multiple approaches to write resolvers depending on how you declare your schema.
 
@@ -96,7 +96,7 @@ In order to keep our resolver clean and easy to test we can also just let the qu
 public string GetGreetings(ObjectType type) => type.Name;
 ```
 
-# Code-First
+## Code-First
 
 Code-first is the second approach with which we can be describe a GraphQL schema. In Code-first, field definition and resolver logic are more closely bound together.
 
@@ -141,7 +141,7 @@ public class PersonType
 }
 ```
 
-# Resolver Types
+## Resolver Types
 
 Since, a lot of resolver logic, like the one in the above example, can be difficult to test and difficult to read, we also allow to create resolver types with the code-first approach.
 
@@ -192,7 +192,7 @@ services.AddGraphQL(so =>
 
 The schema builder will associate the various resolver methods with the correct schema fields and types by analyzing the method parameters. We are providing a couple of attributes that can be used to give the resolver method more context like the return type or the description and so on.
 
-# Resolver Dependency Injection
+## Resolver Dependency Injection
 
 Hot Chocolate supports resolver parameter dependency injection. Basically we are able to inject things that we would usually get from the resolver context itself. This makes it clear what demands the resolver has.
 
@@ -269,7 +269,7 @@ public Person GetFriend([State("foo")]Bar bar)
 }
 ```
 
-# Resolver Context Overview
+## Resolver Context Overview
 
 | Member                      | Type                      | Description                                                                           |
 | --------------------------- | ------------------------- | ------------------------------------------------------------------------------------- |

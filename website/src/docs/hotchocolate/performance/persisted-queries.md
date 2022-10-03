@@ -12,7 +12,7 @@ Extracting queries is supported by client libraries like [Relay](https://relay.d
 src="https://www.youtube.com/embed/ZZ5PF3_P_r4"frameborder="0"
 allowfullscreen></iframe>
 
-# How it works
+## How it works
 
 - All queries our client(s) will execute are extracted during their build process. Individual queries are hashed to generate a unique identifier for each query.
 - Before our server is deployed, the extracted queries are placed in the server's query storage.
@@ -21,7 +21,7 @@ allowfullscreen></iframe>
 
 > Note: There are also [automatic persisted queries](/docs/hotchocolate/performance/automatic-persisted-queries), which allow clients to persist queries at runtime. They might be a better fit, if our API is used by many clients with different requirements.
 
-# Benefits
+## Benefits
 
 <!-- There are two main benefits to using persisted queries: -->
 
@@ -35,7 +35,7 @@ allowfullscreen></iframe>
 
 The server can be tweaked to [only accept persisted queries](#blocking-regular-queries) and refuse queries created by a client at runtime. This is useful mainly for public APIs. -->
 
-# Usage
+## Usage
 
 First we have to instruct our server to handle persisted queries. We can do so by calling `UsePersistedQueryPipeline()` on the `IRequestExecutorBuilder`.
 
@@ -140,7 +140,7 @@ AddSha256DocumentHashProvider(HashFormat.Base64)
 
 > Note: [Relay](https://relay.dev) uses the MD5 hashing algorithm - no additional Hot Chocolate configuration is required.
 
-# Client expectations
+## Client expectations
 
 A client is expected to send an `id` field containing the query hash instead of a `query` field.
 

@@ -10,7 +10,7 @@ Authentication is a prerequisite of Authorization, as we first need to validate 
 
 [Learn how to setup authentication](/docs/hotchocolate/v11/security/authentication)
 
-# Setup
+## Setup
 
 After we have successfully setup authentication, there are only a few things left to do.
 
@@ -55,7 +55,7 @@ public class Startup
 }
 ```
 
-# Usage
+## Usage
 
 At the core of authorization with Hot Chocolate is the `@authorize` directive. It can be applied to fields and types to denote that they require authorization.
 
@@ -311,7 +311,7 @@ public class MinimumAgeHandler
 }
 ```
 
-# Global authorization
+## Global authorization
 
 We can also apply authorization to our entire GraphQL endpoint. To do this, simply call `RequireAuthorization()` on the `GraphQLEndpointConventionBuilder`.
 
@@ -337,7 +337,7 @@ public class Startup
 
 This method also accepts [roles](#roles) and [policies](#policies) as arguments, similar to the `Authorize` attribute / methods.
 
-# Modifying the ClaimsPrincipal
+## Modifying the ClaimsPrincipal
 
 Sometimes we might want to add additional [ClaimsIdentity](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsidentity) to our `ClaimsPrincipal` or modify the default identity.
 

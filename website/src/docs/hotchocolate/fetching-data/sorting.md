@@ -4,7 +4,7 @@ title: Sorting
 
 import { ExampleTabs, Annotation, Code, Schema } from "../../../components/mdx/example-tabs"
 
-# What is sorting
+## What is sorting
 
 Ordering results of a query dynamically is a common case. With Hot Chocolate sorting, you can expose a sorting argument that abstracts the complexity of ordering logic.
 With little configuration, your GraphQL API has sorting capabilities, which translates to native database queries.
@@ -54,7 +54,7 @@ enum SortEnumType {
 }
 ```
 
-# Getting started
+## Getting started
 
 Sorting is part of the `HotChocolate.Data` package. You can add the dependency with the `dotnet` cli
 
@@ -113,10 +113,10 @@ public class Query
 </Schema>
 </ExampleTabs>
 
-> ⚠️ **Note:** If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjections > UseFiltering > UseSorting  
-  
+> ⚠️ **Note:** If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjections > UseFiltering > UseSorting
+
 The type can be sorted using the `order` field in the query:
-  
+
 ```graphql
 query {
   users(order: [{name: ASC}]) {
@@ -127,9 +127,9 @@ query {
   }
 }
 ```
-  
+
 Properties of nested objects can be sorted as well:
-  
+
 ```graphql
 query {
   users(order: [{address: {street: ASC}}]) {
@@ -140,9 +140,9 @@ query {
   }
 }
 ```
-  
+
 Note that it is possible to sort on a field and then by another field:
-  
+
 ```graphql
 query {
   users(order: [{name: ASC}, {address: {street: DESC}}]) {
@@ -153,8 +153,8 @@ query {
   }
 }
 ```
-  
-# Customization
+
+## Customization
 
 Under the hood, sorting is based on top of normal Hot Chocolate input types. You can easily customize them with a very familiar fluent interface. The sorting input types follow the same `descriptor` scheme as you are used to from the normal input types. Just extend the base class `SortInputType<T>` and override the descriptor method.
 
@@ -257,7 +257,7 @@ public class Query
 </Schema>
 </ExampleTabs>
 
-# Sorting Conventions
+## Sorting Conventions
 
 If you want to change the behavior of sorting globally, you want to create a convention for sorting. The sorting convention comes with a fluent interface that is close to a type descriptor.
 

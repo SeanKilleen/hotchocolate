@@ -8,7 +8,7 @@ There are two kinds of directives, executable directives to annotate executable 
 
 Typically, any GraphQL server implementation should provide the following directives `@skip`, `@include`, and `@deprecated`. `@skip` and `@include`, for example, are executable directives used in GraphQL documents to exclude or include fields, whereas `@deprecated` is a type-system directive used in SDL types to inform client tools that a particular part such as a field is deprecated.
 
-# Structure
+## Structure
 
 Directives consist of a name and zero or more arguments. `@skip`, for example, has the name **skip** and a mandatory argument named **if**. Also, `@skip` carries a piece of hidden information only examinable in SDL, namely the location, which specifies where a directive is applicable. Let's take a look at the SDL of the `@skip` directive.
 
@@ -25,7 +25,7 @@ The word `skip` represents the directive's name followed by a pair of parenthese
 
 The `on` keyword indicates the location where or at which part a directive is applicable, followed by a list of exact locations separated by pipes `|`. In the case of `@skip`, we can see that we're dealing with an executable directive because this directive is only applicable to fields, fragment-spreads, and inline-fragments.
 
-# Usage
+## Usage
 
 Let's say we have a GraphQL document and want to exclude details under certain circumstances; it would probably look something like this.
 
@@ -85,7 +85,7 @@ Since we excluded the field `name` in the first place, `@include` does not affec
 
 Now that we have a basic understanding of what directives are, how they work, and what we can do with them, let's create a custom directive.
 
-# Custom Directives
+## Custom Directives
 
 To create a directive, we need to create a new class that inherits from `DirectiveType` and also to override the `Configure` method.
 

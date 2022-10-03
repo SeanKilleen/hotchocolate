@@ -40,7 +40,7 @@ The `IExecutable` is known to the execution engine. The engine calls `ToListAsyn
 `SingleOrDefault` on the executable. The executable shall execute it in the most efficient way for the
 database.
 
-# API
+## API
 
 ## Source
 
@@ -88,7 +88,7 @@ string Print();
 
 Prints the executable in its current state
 
-# Example
+## Example
 
 ```csharp
 public class EntityFrameworkExecutable<T> : QueryableExecutable<T>

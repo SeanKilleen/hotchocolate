@@ -7,7 +7,7 @@ With this integration, you can translate paging, filtering, sorting, and project
 
 You can find a example project in [Hot Chocolate Examples](https://github.com/ChilliCream/hotchocolate-examples/tree/master/misc/MongoDB)
 
-# Get Started
+## Get Started
 
 To use the MongoDB integration, you need to install the package `HotChocolate.Data.MongoDb`.
 
@@ -17,7 +17,7 @@ dotnet add package HotChocolate.Data.MongoDb
 
 > ⚠️ Note: All `HotChocolate.*` packages need to have the same version.
 
-# MongoExecutable
+## MongoExecutable
 
 The whole integration builds around `IExecutable<T>`.
 The integration provides you the extension method `AsExecutable` on `IMongoCollection<T>`, `IAggregateFluent<T>` and `IFindFluent<T>`
@@ -43,7 +43,7 @@ public IExecutable<Person> GetPersonById(
 }
 ```
 
-# Filtering
+## Filtering
 
 To use MongoDB filtering you need to register the convention on the schema builder:
 
@@ -91,7 +91,7 @@ _Mongo Query_
 }
 ```
 
-# Sorting
+## Sorting
 
 To use MongoDB sorting you need to register the convention on the schema builder:
 
@@ -132,7 +132,7 @@ _Mongo Query_
 }
 ```
 
-# Projections
+## Projections
 
 To use MongoDB projections you need to register the convention on the schema builder:
 
@@ -174,7 +174,7 @@ _Mongo Query_
 }
 ```
 
-# Paging
+## Paging
 
 In order to use pagination with MongoDB, we have to register the MongoDB specific pagination providers.
 
@@ -250,7 +250,7 @@ query GetPersons {
 }
 ```
 
-# FirstOrDefault / SingleOrDefault
+## FirstOrDefault / SingleOrDefault
 
 Sometimes you may want to return only a single object of a collection.
 To limit the response to one element you can use the `UseFirstOrDefault` or `UseSingleOrDefault` middleware.

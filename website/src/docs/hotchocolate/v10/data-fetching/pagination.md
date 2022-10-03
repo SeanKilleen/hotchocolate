@@ -10,7 +10,7 @@ There are various ways to implement pagination in your server and you can basica
 
 However, there are two models that you see in most GraphQL server implementations and we have some specific helpers for the later one.
 
-# Offset-based
+## Offset-based
 
 Offset-based pagination — also called numbered pages — is a very common pattern.
 
@@ -42,7 +42,7 @@ public class Query
 }
 ```
 
-# Relay-style cursor pagination
+## Relay-style cursor pagination
 
 In cursor-based pagination, a cursor is used to keep track of where in the data set the next items should be fetched from. The cursor can contain various information like the index of the record within the set and properties that the server can use to recreate the set.
 

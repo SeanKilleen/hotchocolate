@@ -27,7 +27,7 @@ Querying a list field will result in an ordered list containing elements with th
 
 Learn more about lists [here](https://graphql.org/learn/schema/#lists-and-non-null).
 
-# Usage
+## Usage
 
 Lists can be defined like the following.
 

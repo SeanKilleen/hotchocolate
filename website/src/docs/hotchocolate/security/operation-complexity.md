@@ -4,7 +4,7 @@ title: Operation Complexity
 
 The operation complexity analyzer is a useful tool to make your API secure. The operation complexity analyzer assigns by default every field a complexity of `1`. The complexity of all fields in one of the operations of a GraphQL request is not allowed to be greater than the maximum permitted operation complexity.
 
-# Static Request Analysis
+## Static Request Analysis
 
 This sounds fairly simple at first, but the more you think about this, the more you wonder if that is so. Does every field have the same complexity?
 
@@ -69,7 +69,7 @@ query {
 
 This kind of analysis is entirely static and could just be done by inspecting the query syntax tree. The impact on the overall execution performance is very low. But with this static approach, we do have a very rough idea of the performance. Is it correct to apply always a cost of `10` even though we might get one or one hundred books back?
 
-# Full Request Analysis
+## Full Request Analysis
 
 The hot chocolate operation complexity analyzer can also take arguments into account when analyzing operation complexity.
 
@@ -129,7 +129,7 @@ services
     });
 ```
 
-# Default Complexity Rules
+## Default Complexity Rules
 
 Hot Chocolate will automatically apply multipliers to fields that enable pagination. Moreover, explicit resolvers and resolvers compiled from async resolvers are by default weighted with `5` to mark them as having more impact than fields that do not fetch data.
 
@@ -146,7 +146,7 @@ services
     });
 ```
 
-# Advanced
+## Advanced
 
 Often we not only want to make sure that a consumer of our API does not do too complex queries, but we also want to make sure that the consumer does not issue too many complex queries in a given time window. For this reason, the complexity analysis will store the query complexity on the request context data.
 

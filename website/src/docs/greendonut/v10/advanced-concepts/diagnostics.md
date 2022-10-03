@@ -6,7 +6,7 @@ This library has recently added _DiagnosticSources_ to offer an
 _Instrumentation API_ to collect diagnostic events. To get started we need to
 add _two_ packages and implement _two_ classes. So lets get started.
 
-# Installation
+## Installation
 
 We need to add the required packages.
 
@@ -25,7 +25,7 @@ Install-Package System.Diagnostics.DiagnosticSource
 Install-Package Microsoft.Extensions.DiagnosticAdapter
 ```
 
-# Implement Diagnostic Listener
+## Implement Diagnostic Listener
 
 After we added those two packages we can start listening to Green Donut
 diagnostic events by implementing a _DiagnosticListener_.
@@ -154,7 +154,7 @@ namespace Demo
 }
 ```
 
-# Subscribe to Events
+## Subscribe to Events
 
 Last but not least we must subscribe to the Green Donut _DiagnosticSource_.
 

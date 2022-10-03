@@ -19,7 +19,7 @@ type Book {
 
 Learn more about object types [here](https://graphql.org/learn/schema/#object-types-and-fields).
 
-# Usage
+## Usage
 
 Object types can be defined like the following.
 
@@ -127,7 +127,7 @@ public class Startup
 </Schema>
 </ExampleTabs>
 
-# Binding behavior
+## Binding behavior
 
 In the Annotation-based approach all public properties and methods are implicitly mapped to fields of the schema object type.
 
@@ -216,7 +216,7 @@ public class BookType : ObjectType<Book>
 }
 ```
 
-# Naming
+## Naming
 
 Unless specified explicitly, Hot Chocolate automatically infers the names of object types and their fields. Per default the name of the class becomes the name of the object type. When using `ObjectType<T>` in Code-first, the name of `T` is chosen as the name for the object type. The names of methods and properties on the respective class are chosen as names of the fields of the object type.
 
@@ -287,7 +287,7 @@ If only one of our clients requires specific names, it is better to use [aliases
 }
 ```
 
-# Explicit types
+## Explicit types
 
 Hot Chocolate will, most of the time, correctly infer the schema types of our fields. Sometimes we might have to be explicit about it though. For example when we are working with custom scalars or Code-first types in general.
 
@@ -329,7 +329,7 @@ Simply change the field type in the schema.
 </Schema>
 </ExampleTabs>
 
-# Additional fields
+## Additional fields
 
 We can add additional (dynamic) fields to our schema types, without adding new properties to our backing class.
 
@@ -405,7 +405,7 @@ What we have just created is a resolver. Hot Chocolate automatically creates res
 
 [Learn more about resolvers](/docs/hotchocolate/v11/fetching-data/resolvers)
 
-# Generics
+## Generics
 
 > Note: Read about [interfaces](/docs/hotchocolate/v11/defining-a-schema/interfaces) and [unions](/docs/hotchocolate/v11/defining-a-schema/unions) before resorting to generic object types.
 

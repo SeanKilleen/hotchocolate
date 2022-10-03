@@ -4,7 +4,7 @@ title: Object Type
 
 The object type is the most prominent type in GraphQL. There are currently two ways to describe an object type with the code-first approach.
 
-# ObjectType<T\>
+## ObjectType<T\>
 
 The first approach is by using the generic object type class which lets you specify an entity type that shall represent your schema type in .NET. The object type descriptor will then try to automatically infer the GraphQL schema type from your .NET type.
 
@@ -51,7 +51,7 @@ type Query {
 }
 ```
 
-# Object Type Descriptors
+## Object Type Descriptors
 
 The following table shows the object type descriptor options:
 
@@ -265,7 +265,7 @@ type Bar {
 }
 ```
 
-# ObjectType
+## ObjectType
 
 The second approach to describe object types is with the non-generic object type. The non-generic type does not necessarily have a fixed .NET type binding. This means that you have more flexibility in defining your schema type and how the data flows through the query engine.
 

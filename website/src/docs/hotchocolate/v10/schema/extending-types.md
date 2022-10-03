@@ -4,7 +4,7 @@ title: Custom Base Classes
 
 Hot Chocolate is built with extensibility in mind and allows you to customize exiting type base classes and the descriptors.
 
-# Introduction
+## Introduction
 
 In order to know how to extend the type system it is important to know how we actually initialize our types. Types in Hot Chocolate are initialized in three phases (create, assign name and complete type). Each phase can be extended.
 
@@ -22,7 +22,7 @@ Let\`s say we have a type `EdgeType<T>` where `T` is another schema type. The re
 
 The last phase of the type initialization process will complete the types, this means that the type will manifest in its final form and become immutable. In this final phase the object type for instance builds its fields or the enum type for instance creates its values.
 
-# Extending Types
+## Extending Types
 
 Hot Chocolate allows to extend types by creating extension methods on specific descriptors or by inheriting from a type base class and overriding the initialization process. Both ways provide unique capabilities depending on what you want to do.
 

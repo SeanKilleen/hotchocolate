@@ -13,7 +13,7 @@ Christmas is almost here! With the beginning of the festivities, more and more p
 
 Today, we are releasing Hot Chocolate 12.4, which brings a lot of great new productivity features to the table. Let me give you a little tour of what's new.
 
-# Mutation Conventions
+## Mutation Conventions
 
 The main feature we worked on for this release was definitely the mutation conventions. The new convention will help minimize the effort to create well-defined mutations.
 
@@ -395,7 +395,7 @@ You can read more about all of this in our [documentation](https://chillicream.c
 
 One last aspect before we move on to the next topic. We also thought about result objects where a service we use does not use exceptions but already has error objects. Or F# code where we might have a union representing a result and its errors. We do not yet support these kinds of things but will further iterate on the current conventions to include these approaches towards results and errors in the future.
 
-# Dependency Injection Improvements
+## Dependency Injection Improvements
 
 Users that build large schemas with Hot Chocolate from time to time have asked us to help them reduce the DI code they have to write for resolvers.
 
@@ -477,7 +477,7 @@ public async Task<ScheduleSessionPayload> ScheduleSessionAsync(
 
 Whether you are using well-known services registered at the schema level or services declared with the attribute, you have the same capabilities and a new streamlined experience.
 
-# Entity Framework Improvements
+## Entity Framework Improvements
 
 When redoing the services, we also looked at EF Core. The DBContext is a unique service that needs to be treated differently depending on how you registered it with your DI.
 
@@ -521,13 +521,13 @@ In combination with well-known services, you can also much easier handle DI beha
 
 We will further refine these features to integrate more use-cases and reduce the complexity even further.
 
-# DateOnly and TimeOnly
+## DateOnly and TimeOnly
 
 One small note, we now support `DateOnly` and `TimeOnly`. They will now work with the current set of scalars and also with HotChocolate.Data.
 
 We are still working on adding support NodaTime to HotChocolate.Data so that you can write filters that use NodaTime object beneath.
 
-# Outlook
+## Outlook
 
 Work on 12.5 already is underway, and there are four notable things we are working on for this next iteration:
 

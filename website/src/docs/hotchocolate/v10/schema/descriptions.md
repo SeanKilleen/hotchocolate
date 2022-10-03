@@ -4,7 +4,7 @@ title: Schema Descriptions
 
 As with any API, documentation is an important of describing the data and queries available to a consumer. Hot Chocolate offers multiple ways to document your GraphQL application.
 
-# Schema-first
+## Schema-first
 
 In schema-first scenarios the schema parser supports the inclusion of description strings. When a schema string includes such descriptions, they will be available through your typically introspection queries.
 
@@ -87,7 +87,7 @@ type Query {
 }
 ```
 
-# Code-First
+## Code-First
 
 In code-first schemas there are multiple ways to describe the types and queries available in your API. The documentation options listed below are listed in order of specificity, meaning that options listed at the top will be overridden by options listed after it.
 

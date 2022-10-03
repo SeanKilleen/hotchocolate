@@ -49,7 +49,7 @@ The execution of a request finishes, once each resolver of the selected fields h
 
 _This is of course an oversimplification that differs from the actual implementation._
 
-# Defining a Resolver
+## Defining a Resolver
 
 Resolvers can be defined in a way that should feel very familiar to C# developers, especially in the Annotation-based approach.
 
@@ -241,7 +241,7 @@ public class QueryType : ObjectType
 }
 ```
 
-# Arguments
+## Arguments
 
 We can access arguments we defined for our resolver like regular arguments of a function.
 
@@ -249,7 +249,7 @@ There are also specific arguments that will be automatically populated by Hot Ch
 
 [Learn more about arguments](/docs/hotchocolate/defining-a-schema/arguments)
 
-# Injecting Services
+## Injecting Services
 
 Let's assume we have created a `UserService` and registered it as a service.
 
@@ -275,7 +275,7 @@ public class Query
 
 [Learn more about dependency injection](/docs/hotchocolate/server/dependency-injection)
 
-# Accessing the HttpContext
+## Accessing the HttpContext
 
 The [IHttpContextAccessor](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) allows us to access the [HttpContext](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpcontext) of the current request from within our resolvers. This is useful, if we for example need to set a header or cookie.
 
@@ -305,7 +305,7 @@ public string Foo(string id, [Service] IHttpContextAccessor httpContextAccessor)
 }
 ```
 
-# Accessing parent values
+## Accessing parent values
 
 The resolver of each field on a type has access to the value that was resolved for said type.
 

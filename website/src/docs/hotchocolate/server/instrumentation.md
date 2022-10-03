@@ -4,7 +4,7 @@ title: Instrumentation
 
 Hot Chocolate allows us to create custom diagnostic event listeners, tapping into internal instrumentation events and further processing them. This abstraction allows us to use the logging or tracing infrastructure that we want to use. Further, we provide a default implementation for open telemetry.
 
-# Diagnostic events
+## Diagnostic events
 
 Currently, we can implement diagnostic event listeners for the following event types:
 
@@ -222,7 +222,7 @@ The following methods can be overridden.
 | BatchItemError        | Called for a specific item that contained an error within a batch operation.                                    |
 | ResolvedTaskFromCache | Called once a task to resolve an item by its key has been added or retrieved from the `TaskCache`.              |
 
-# OpenTelemetry
+## OpenTelemetry
 
 OpenTelemetry is an open-source project and unified standard for service instrumentation or a way of measuring performance. Sponsored by the Cloud Native Computing Foundation (CNCF), it replaces OpenTracing and OpenCensus. The goal is to standardize how you collect and send telemetry data to a backend platform.
 
@@ -383,7 +383,7 @@ builder.Services.AddSingleton<ActivityEnricher, CustomActivityEnricher>();
 
 ![Jaeger](../../shared/jaeger4.png)
 
-# Apollo Tracing
+## Apollo Tracing
 
 _Apollo Tracing_ is a [performance tracing specification](https://github.com/apollographql/apollo-tracing) for GraphQL servers. It works by returning tracing information about the current request alongside the computed data. While it is not part of the GraphQL specification itself, there is a common agreement in the GraphQL community that all GraphQL servers should support it.
 

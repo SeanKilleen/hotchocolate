@@ -6,7 +6,7 @@ title: "Performance"
 
 In this section we will give you an overview on how to optimize the performance of your GraphQL client. We will put an emphasis on network performance since this is the most critical performance obstacle you are facing when developing fluent applications that also have to work over bad mobile network connections or even when the application becomes fully offline.
 
-# Persisted queries and automatic persisted queries
+## Persisted queries and automatic persisted queries
 
 **Improve performance by sending smaller requests and pre-compile queries**
 
@@ -27,7 +27,7 @@ Automatic persisted queries allow us to store queries dynamically on the server 
 
 **We are currently still working on this feature so stay tuned on this one.**
 
-# Persisted State
+## Persisted State
 
 Apart from focusing on reducing network request size we also can optimize using the network less by using the stores more efficiently. If you are not yet familiar with the store concepts first head over to [here](/docs/strawberryshake/caching).
 

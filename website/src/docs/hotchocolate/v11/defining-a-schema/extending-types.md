@@ -12,7 +12,7 @@ Type extensions are especially useful if we want to modify third-party types, su
 
 > ⚠️ Note: Type extensions do not produce the [extend type syntax that GraphQL offers](http://spec.graphql.org/draft/#sec-Object-Extensions), since it would unnecessarily complicate the resulting schema. Instead, Hot Chocolate's type extensions are directly merged with the original type definition to create a single type at runtime.
 
-# Object Types
+## Object Types
 
 Consider we have the following entity that we want to extend with functionality.
 

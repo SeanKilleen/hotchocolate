@@ -35,7 +35,7 @@ mutation {
 
 Each of these mutations is executed serially one by one whereas their child selection sets are executed possibly in parallel since only top-level mutation fields (those directly under `mutation`) are allowed to cause side-effects in GraphQL.
 
-# Usage
+## Usage
 
 A mutation type can be defined like the following.
 
@@ -137,7 +137,7 @@ public class Startup
 </Schema>
 </ExampleTabs>
 
-# Transactions
+## Transactions
 
 With multiple mutations executed serially in one request it can be useful to wrap these in a transaction that we can control.
 

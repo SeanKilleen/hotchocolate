@@ -2,7 +2,7 @@
 title: "Installation"
 ---
 
-# macOS
+## macOS
 
 Banana Cake Pop App can be installed on macOS using a package manager (recommended) or by downloading the DMG installer.
 
@@ -21,7 +21,7 @@ Make sure to download the correct installer if you're using an Apple Silicon Mac
 - [Intel Mac (x64)](https://download.chillicream.com/bananacakepop/BananaCakePop-1.0.0-mac-x64.dmg)
 - [Apple Silicon Mac (ARM 64)](https://download.chillicream.com/bananacakepop/BananaCakePop-1.0.0-mac-arm64.dmg)
 
-# Windows
+## Windows
 
 Banana Cake Pop App can be installed in Windows using a package manager (recommended) or by downloading the installer.
 
@@ -46,7 +46,7 @@ scoop install banana-cake-pop
 
 - [Windows Installer (x64)](https://download.chillicream.com/bananacakepop/BananaCakePop-1.0.0-win-x64.exe)
 
-# Linux
+## Linux
 
 We offer an AppImage and Snap installer for Ubuntu. At the moment, we do not support other distributions or installer formats.
 

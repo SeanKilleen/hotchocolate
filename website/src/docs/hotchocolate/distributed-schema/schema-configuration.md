@@ -5,7 +5,7 @@ title: "Schema Configuration"
 Schema stitching and federations do have a lot more potential than just merging root types.
 You can remove and rename types and fields, extend types with new resolvers and delegate these resolvers to a domain service.
 
-# Schema Transformation
+## Schema Transformation
 
 ## Rename Types
 
@@ -220,7 +220,7 @@ services
     .IgnoreField("Query", "categories", Inventory);
 ```
 
-# Delegation of Resolvers
+## Delegation of Resolvers
 
 The real power of schema stitching is the delegation of resolvers.
 You can extend types with fields and redirect calls to a domain service

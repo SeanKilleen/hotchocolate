@@ -35,7 +35,7 @@ mutation {
 
 Each of these mutations is executed serially one by one whereas their child selection sets are executed possibly in parallel since only top-level mutation fields (those directly under `mutation`) are allowed to cause side-effects in GraphQL.
 
-# Usage
+## Usage
 
 A mutation type can be defined like the following.
 
@@ -145,7 +145,7 @@ A mutation type is just a regular object type, so everything that applies to an 
 
 [Learn more about object types](/docs/hotchocolate/defining-a-schema/object-types)
 
-# Transactions
+## Transactions
 
 With multiple mutations executed serially in one request it can be useful to wrap these in a transaction that we can control.
 
@@ -201,7 +201,7 @@ services
     .AddTransactionScopeHandler<CustomTransactionScopeHandler>();
 ```
 
-# Conventions
+## Conventions
 
 In GraphQL, it is best practice to have a single argument on mutations called `input`, and each mutation should return a payload object.
 The payload object allows to read the changes of the mutation or to access the domain errors caused by a mutation.

@@ -21,7 +21,7 @@ Strawberry Shake supports the following scalars out of the box:
 | `Date`      | ISO-8601 date                                               |
 | `Uuid`      | GUID                                                        |
 
-# Custom Scalars
+## Custom Scalars
 
 As an addition to the scalars listed above, you can define your own scalars for the client.
 A scalar has two representation: the `runtimeType` and the `serializationType`.

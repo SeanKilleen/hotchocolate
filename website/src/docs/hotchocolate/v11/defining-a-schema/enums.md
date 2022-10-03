@@ -16,7 +16,7 @@ enum UserRole {
 
 Learn more about enums [here](https://graphql.org/learn/schema/#enumeration-types).
 
-# Usage
+## Usage
 
 We can define enums like the following.
 

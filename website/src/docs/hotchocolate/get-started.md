@@ -11,7 +11,7 @@ In this tutorial, we will walk you through the basics of creating a GraphQL serv
 src="https://www.youtube.com/embed/qrh97hToWpM"frameborder="0"
 allowfullscreen></iframe>
 
-# Setup
+## Setup
 
 If you are integrating Hot Chocolate into an existing project using ASP.NET Core, you can skip step 1.
 
@@ -206,7 +206,7 @@ Create a new project from within Visual Studio using the "HotChocolate GraphQL S
 </InputChoiceTabs.VisualStudio>
 </InputChoiceTabs> -->
 
-# Executing a query
+## Executing a query
 
 First off we have to run the project.
 
@@ -262,7 +262,7 @@ You can also view and browse the schema from within Banana Cake Pop. Click on th
 
 Congratulations, you've built your first Hot Chocolate GraphQL server and sent a query using the Banana Cake Pop GraphQL IDE 🎉🚀
 
-# Additional resources
+## Additional resources
 
 Now that you've setup a basic GraphQL server, what should be your next steps?
 

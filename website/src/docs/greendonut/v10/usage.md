@@ -9,7 +9,7 @@ _DataLoader_ and/or using _DI_, which is an abbreviation for
 _Dependency Injection_, you might want to also take a look at the
 [Custom DataLoader](/docs/greendonut/v10/advanced-concepts) section.
 
-# Create a new instance
+## Create a new instance
 
 Creating a new instance is easy as you will see in the following example. The
 tricky part here is to implement our data fetching logic - here shown as
@@ -40,7 +40,7 @@ forever in the cache as long as the maximum cache size does not exceed. Whereas
 gets touched within one hour. This is an additional feature that does not exist
 in the original _facebook_ implementation.
 
-# Fetching data
+## Fetching data
 
 Fetching data consists of two parts. The first part is declaring your need in one or
 more data items by providing one or more keys.

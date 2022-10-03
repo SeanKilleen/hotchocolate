@@ -22,7 +22,7 @@ builder.Services
 
 Injecting these services into Hot Chocolate resolvers works a bit different though.
 
-# Resolver injection
+## Resolver injection
 
 The correct way to inject dependencies into your resolvers is by injecting them into your resolver method as an argument.
 
@@ -69,7 +69,7 @@ descriptor
 
 If you are trying to inject a Entity Framework Core `DbContext`, be sure to checkout our [guidance on working with Entity Framework Core](/docs/hotchocolate/integrations/entity-framework).
 
-# Constructor injection
+## Constructor injection
 
 When starting out with Hot Chocolate you might be inclined to inject dependencies into your GraphQL type definitions using the constructor.
 
@@ -82,7 +82,7 @@ Of course this does not apply within your own dependencies. Your `ServiceA` clas
 
 When you need to access dependency injection services in your resolvers, try to stick to the [method-level dependency injection approach](#resolver-injection) outlined above.
 
-# RegisterService
+## RegisterService
 
 Having to specify an attribute to inject a service can become quite tedious when said service is injected into multiple resolvers.
 
@@ -134,7 +134,7 @@ public class Query
 }
 ```
 
-# UseServiceScope
+## UseServiceScope
 
 Per default scoped services are scoped to the current request. If you want to resolve the services for a particular resolver using a dedicated [`IServiceScope`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope), you can use the `UseServiceScope` middleware.
 
@@ -175,7 +175,7 @@ Take a look at the Annotation-based or Code-first example.
 
 If `Service1` and `Service2` are scoped services they will both be resolved from the same [`IServiceScope`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) that only exists for this particular resolver. If the resolver is invoked multiple times, the [`IServiceScope`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) will be different each time. The resolver-scoped [`IServiceScope`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) and all services resolved with it, are disposed as soon as the resolver has been executed.
 
-# ServiceKind
+## ServiceKind
 
 When injecting a service you can specify a `ServiceKind` to instruct Hot Chocolate to use a certain strategy when injecting the service.
 
@@ -225,7 +225,7 @@ public class Query
 
 [Learn more about `ObjectPool<T>`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.objectpool.objectpool-1)
 
-# Switching the service provider
+## Switching the service provider
 
 While Hot Chocolate's internals rely heavily on Microsoft's dependency injection container, you are not required to manage your own dependencies using this container. Per default Hot Chocolate uses the request-scoped [`HttpContext.RequestServices`](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpcontext.requestservices) `IServiceProvider` to provide services to your resolvers.
 

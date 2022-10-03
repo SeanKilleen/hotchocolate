@@ -12,7 +12,7 @@ In this tutorial, we will teach you how to:
 - Define a GraphQL schema.
 - Query your GraphQL server.
 
-# Step 1: Create a GraphQL server project
+## Step 1: Create a GraphQL server project
 
 Open your preferred terminal and select a directory where you want to add the code of this tutorial.
 
@@ -28,7 +28,7 @@ dotnet new web -n Demo
 dotnet add ./Demo package HotChocolate.AspNetCore
 ```
 
-# Step 2: Create a GraphQL schema
+## Step 2: Create a GraphQL schema
 
 Next, we want to create a GraphQL schema. The GraphQL schema defines how we expose data to our consumers. To define the schema, open your favorite C# editor and let us get started.
 
@@ -119,7 +119,7 @@ Now we can use the following to bootstrap our future GraphQL servers:
 dotnet new graphql
 ```
 
-# Step 3: Execute a GraphQL query
+## Step 3: Execute a GraphQL query
 
 Now that your server is finished let us try it out by executing a simple GraphQL query.
 
@@ -152,7 +152,7 @@ dotnet run --project ./Demo
 
 ![GraphQL IDE Execute Query](../../images/get-started-bcp-query.png)
 
-# Summary
+## Summary
 
 In this guide, we have learned how to set up a simple GraphQL server project and define a GraphQL schema with .NET.
 

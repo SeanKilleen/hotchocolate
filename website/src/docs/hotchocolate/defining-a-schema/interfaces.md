@@ -23,7 +23,7 @@ type Query {
 }
 ```
 
-# Usage
+## Usage
 
 GIven is the schema from above.
 
@@ -50,7 +50,7 @@ If we need to access fields that are part of an object type implementing the int
 }
 ```
 
-# Definition
+## Definition
 
 Interfaces can be defined like the following.
 
@@ -253,7 +253,7 @@ public class Startup
 > services.AddGraphQLServer().AddType<TextMessageType>()
 > ```
 
-# Binding behavior
+## Binding behavior
 
 In the Annotation-based approach all public properties and methods are implicitly mapped to fields on the schema interface type. The same is true for `T` of `InterfaceType<T>` when using the Code-first approach.
 
@@ -350,7 +350,7 @@ public class MessageType : InterfaceType<IMessage>
 }
 ```
 
-# Naming
+## Naming
 
 Unless specified explicitly, Hot Chocolate automatically infers the names of interface types and their fields. Per default the name of the interface / abstract class becomes the name of the interface type. When using `InterfaceType<T>` in Code-first, the name of `T` is chosen as the name for the interface type. The names of methods and properties on the respective interface / abstract class are chosen as names of the fields of the interface type
 
@@ -416,7 +416,7 @@ interface Post {
 }
 ```
 
-# Interfaces implementing interfaces
+## Interfaces implementing interfaces
 
 Interfaces can also implement other interfaces.
 

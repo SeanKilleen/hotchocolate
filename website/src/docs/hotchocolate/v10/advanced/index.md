@@ -4,7 +4,7 @@ title: Parser
 
 The Hot Chocolate parser is a port from the `graphql-js` reference implementation. We are constantly updating the lexer and parser to keep up with new spec features in order to keep it the fastest and most feature complete GraphQL parser in .NET.
 
-# Getting Started
+## Getting Started
 
 If you want to build GraphQL tooling for .NET or your own type system and query-engine feel free to built on top of the Hot Chocolate parser.
 
@@ -23,7 +23,7 @@ DocumentNode document = parser.Parse("{ x { y } }");
 
 We have created some visitor classes in order to make it easy to traverse the parsed syntax nodes.
 
-# Important Base Classes
+## Important Base Classes
 
 Here are some important base classes:
 
@@ -65,6 +65,6 @@ The `QuerySerializer` is built upon the `QuerySyntaxWalker` and serializes query
 
 We are also providing a set of rewriter base classes that basically represent a visitor that produces a new graph by visiting the various nodes.
 
-# What's Coming Next
+## What's Coming Next
 
 We have started work on our high-performance parser that will boost stitching performance as well as normal execution of queries.

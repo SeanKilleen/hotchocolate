@@ -50,7 +50,7 @@ This operation should always have the same name.
 
 With this in mind, we can have a deeper dive into filtering. Buckle up, this might get exciting.
 
-# How everything fits together
+## How everything fits together
 
 At the core of the configuration API of filtering there sits a convention. The convention holds the whole
 configuration that filtering needs to create filter types and to translate them to the database.
@@ -63,7 +63,7 @@ During schema initialization, these handlers are bound, to the GraphQL fields. T
 During execution, the provider visits the incoming value node and executes the handler on the fields.
 This loose coupling allows defining the provider independently of the convention.
 
-# Filter Convention
+## Filter Convention
 
 A filter convention is a dotnet class that has to implement the interface `IFilterConvention`.
 Instead of writing a convention completely new, it is recommended to extend the base convention `FilterConvention`
@@ -164,7 +164,7 @@ public class CustomConvention : FilterConvention
 }
 ```
 
-# Providers
+## Providers
 
 Like the convention, a provider can be configured over a fluent interface.
 Every filter field or operation has a specific handler defined. The handler translates the operation to the database.
@@ -333,7 +333,7 @@ A little simplified this is what happens during visitation:
 }
 ```
 
-# Extending IQueryable
+## Extending IQueryable
 
 The default filtering implementation uses `IQueryable` under the hood. You can customize the translation of queries by registering handlers on the `QueryableFilterProvider`.
 

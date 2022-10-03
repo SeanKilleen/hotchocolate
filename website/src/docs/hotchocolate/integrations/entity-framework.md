@@ -38,7 +38,7 @@ Since Hot Chocolate parallelizes the execution of query fields, and both of the 
 - `A second operation started on this context before a previous operation completed.`
 - `Cannot access a disposed object.`
 
-# Resolver injection of a DbContext
+## Resolver injection of a DbContext
 
 In order to ensure that resolvers do not access the same scoped `DbContext` instance in parallel, you can inject it using the `ServiceKind.Synchronized`.
 
@@ -52,7 +52,7 @@ public Foo GetFoo(
 
 Since this is a lot of code to write, just to inject a `DbContext`, you can use [`RegisterDbContext<T>`](#registerdbcontext) to simplify the injection.
 
-# RegisterDbContext
+## RegisterDbContext
 
 In order to simplify the injection of a `DbContext` we have introduced a method called `RegisterDbContext<T>`, similar to the [`RegisterService<T>`](/docs/hotchocolate/server/dependency-injection#registerservice) method for regular services. This method is part of the `HotChocolate.Data.EntityFramework` package, which you'll have to install.
 
@@ -92,7 +92,7 @@ builder.Services
     .RegisterDbContext<ApplicationDbContext>(DbContextKind.Pooled)
 ```
 
-# DbContextKind
+## DbContextKind
 
 When registering a `DbContext` you can specify a `DbContextKind` to instruct Hot Chocolate to use a certain strategy when injecting the `DbContext`. For the most part the `DbContextKind` is really similar to the [ServiceKind](/docs/hotchocolate/server/dependency-injection#servicekind), with the exception of the [DbContextKind.Pooled](#dbcontextkindpooled).
 
@@ -130,7 +130,7 @@ When injecting a `DbContext` using the `DbContextKind.Pool`, Hot Chocolate will 
 
 Since each resolver invocation is therefore working with a "transient" `DbContext` instance, Hot Chocolate can parallelize the execution of resolvers using this `DbContext`.
 
-# Working with a pooled DbContext
+## Working with a pooled DbContext
 
 If you have registered your `DbContext` using [DbContextKind.Pooled](#dbcontextkindpooled) you are on your way to squeeze the most performance out of your GraphQL server, but unfortunately it also changes how you have to use the `DbContext`.
 

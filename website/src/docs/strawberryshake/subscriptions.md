@@ -10,7 +10,7 @@ Subscriptions in GraphQL represent real-time events that are represented as a st
 
 GraphQL subscriptions can be used through reactive APIs like queries. Instead of a single network request, the store will subscribe to the GraphQL response stream and update the store for each new result.
 
-# Setup
+## Setup
 
 > This section will be based on the [getting started tutorial](/docs/strawberryshake/get-started).
 

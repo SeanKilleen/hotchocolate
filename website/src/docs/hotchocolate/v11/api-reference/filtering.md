@@ -8,7 +8,7 @@ With Hot Chocolate filters, you can expose complex filter objects through your G
 
 The default filter implementation translates filters to expression trees and applies these on `IQueryable`.
 
-# Overview
+## Overview
 
 Filters by default work on `IQueryable` but you can also easily customize them to use other interfaces.
 
@@ -96,7 +96,7 @@ public class Query
 
 > ⚠️ **Note:** Schema first does currently not support filtering!
 
-# Customizing Filters
+## Customizing Filters
 
 A `FilterInputType<T>` defines a GraphQL input type, that Hot Chocolate uses for filtering. You can customize these similar to a normal input type. You can change the name of the type; add, remove, or change operations or directive; and configure the binding behavior. To define and customize a filter we must inherit from `FilterInputType<T>` and configure it like any other type by overriding the `Configure` method.
 
@@ -135,7 +135,7 @@ public class QueryType
 }
 ```
 
-# Sorting
+## Sorting
 
 Like with filter support you can add sorting support to your database queries.
 
@@ -194,7 +194,7 @@ After the paging middleware has been executed and updated the result on the midd
 
 So, if we, for instance, applied paging as our last middleware the data set would have been sliced first and then filtered which in most cases is not what we actually want.
 
-# Filter & Operations Kinds
+## Filter & Operations Kinds
 
 You can break down filtering into different kinds of filters that then have different operations.
 The filter kind is bound to the type. A string is fundamentally something different than an array or an object.
@@ -709,7 +709,7 @@ public class UserFilterType : FilterInputType<User>
 }
 ```
 
-# Naming Conventions
+## Naming Conventions
 
 \_Hot Chocolate already provides two naming schemes for filters. If you would like to define your own naming scheme or extend existing ones have a look at the documentation of TODO:Link-Filtering
 
@@ -868,7 +868,7 @@ input ISingleFilterOfInt16Filter {
 }
 ```
 
-# Customizing Filter
+## Customizing Filter
 
 Hot Chocolate provides different APIs to customize filtering. You can write custom filter input types, customize the inference behavior of .NET Objects, customize the generated expression, or create a custom visitor, and attach your exotic database.
 
@@ -887,7 +887,7 @@ Hot Chocolate provides different APIs to customize filtering. You can write cust
 | _You want to create your own filter types with custom parameters and custom expressions? e.g. GeoJson?_                                 | Filter&nbsp;Conventions         |
 | _You have a database client that does not support `IQueryable` and wants to generate filters for it?_                                   | Custom&nbsp;Visitor             |
 
-# Custom&nbsp;FilterInputType
+## Custom&nbsp;FilterInputType
 
 Under the hood, filtering is based on top of normal Hot Chocolate input types. You can easily customize them with a very familiar fluent interface. The filter input types follow the same `descriptor` scheme as you are used to from the normal filter input types. Just extend the base class `FilterInputType<T>` and override the descriptor method.
 
@@ -1002,7 +1002,7 @@ input UserFilter {
 | `csharp±Directive<TDirective>(TDirective directiveInstance)`                     | Add directive of type `TDirective` to the type                                                                                                  |
 | `csharp±Directive<TDirective>(NameString name, params ArgumentNode[] arguments)` | Add directive of type `TDirective` to the type                                                                                                  |
 
-# Filter Conventions
+## Filter Conventions
 
 The customization of filters with `FilterInputTypes<T>` works if you only want to customize one specific filter type.
 If you want to change the behavior of all filter types, you want to create a convention for your filters. The filter convention comes with a fluent interface that is close to a type descriptor.

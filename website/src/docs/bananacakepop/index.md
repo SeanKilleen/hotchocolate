@@ -8,13 +8,13 @@ Banana Cake Pop makes it easy and enjoyable to test your GraphQL server implemen
 
 ![Banana Cake Pop - Operations](../shared/bcp/bcp-operations.png)
 
-# Web App
+## Web App
 
 You can try Banana Cake Pop on the web by going to [eat.bananacakepop.com](https://eat.bananacakepop.com/)
 
 The web version will let you query public GraphQL APIs and try out the Banana Cake Pop features. However, if you want to access local GraphQL servers, we recommend installing the [Banana Cake Pop App](/docs/bananacakepop/install).
 
-# Desktop App
+## Desktop App
 
 The Banana Cake Pop App makes it easy explore and test your local GraphQL servers. See the installation instructions below:
 

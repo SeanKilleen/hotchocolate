@@ -8,7 +8,7 @@ Handling files is traditionally not a concern of a GraphQL server, which is also
 
 That being said, we recognize that at some point in the development of a new application you'll likely have to deal with files in some way or another. Which is why we want to give you some guidance on this topic.
 
-# Uploading files
+## Uploading files
 
 When it comes to uploading files there are a couple of options we have.
 
@@ -270,7 +270,7 @@ This solution offers the following benefits:
 
 There is still some uncertainty about how the actual file upload happens, e.g. which HTTP verb to use or which headers to send using the `uploadUrl`. These additional parameters can either be documented somewhere or be made queryable using our mutation.
 
-# Serving files
+## Serving files
 
 Let's imagine we want to expose the file we just uploaded as the user's profile picture. How would we query for this file?
 

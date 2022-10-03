@@ -36,7 +36,7 @@ Clients can query fields returning a union like the following.
 
 Learn more about unions [here](https://graphql.org/learn/schema/#union-types).
 
-# Usage
+## Usage
 
 Unions can be defined like the following.
 

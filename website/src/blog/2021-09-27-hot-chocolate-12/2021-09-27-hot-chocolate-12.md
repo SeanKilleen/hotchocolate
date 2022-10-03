@@ -11,7 +11,7 @@ authorImageUrl: https://avatars1.githubusercontent.com/u/9714350?s=100&v=4
 
 Today we are releasing Hot Chocolate 12, which brings many new features and refinements to the platform. The main focus for this release was to put a new execution engine in place that will allow us to build a more efficient schema federation with the next version. We are constantly iterating on the execution engine to make it more efficient and allow for new use-cases. Many implementations for GraphQL federation/stitching build a specific execution engine to handle federated schemas. With Hot Chocolate, we always wanted to keep this integrated and allow for stitching part of a graph while at the same time extending types in that very same schema. This also allows us to use improvements made for schema federation in other areas like Hot Chocolate Data, which will boost features and reliability with the next release.
 
-# Execution Engine
+## Execution Engine
 
 The execution engine is changing with every release of Hot Chocolate. With version 11, we, for instance, introduced operation compilation, which takes the executed operation out of a document and pre-compiles it so that most of the GraphQL execution algorithm can be skipped in consecutive calls.
 
@@ -104,7 +104,7 @@ Let's have a look at the throughput tests which we run to see the GraphQL engine
 
 With Hot Chocolate 13, our goal is to hit 40000 requests per second on the throughput tests, and we are hopeful that we can achieve this with some refinements in the execution engine. As we advance, we will start investing in other areas like startup performance as well.
 
-# Entity Framework
+## Entity Framework
 
 I talked about many improvements in the execution engine that we will only unlock with Hot Chocolate 13. Still, we also have some practical use for the new execution engine features with Hot Chocolate 12. Specifically for APIs that use Entity Framework. In general, I always recommend letting the execution engine roam free and parallelize as needed. With Entity Framework, this can be achieved with DBContext pooling. But in some cases, this is not what people want or need for their specific use-case.
 
@@ -187,7 +187,7 @@ If we did the same for serial resolvers, we would get a sequence shape that woul
 
 BTW, allowing such serial execution flows in Hot Chocolate 12 was one of the most requested features, and the team is quite happy to provide this now to our community.
 
-# Resolver Compiler
+## Resolver Compiler
 
 One of the things many people love about Hot Chocolate is how we infer the GraphQL schema from your C# types and how you can inject various things into your resolver.
 
@@ -263,7 +263,7 @@ We could go further and write a selector for your resolver compiler extension th
 
 However, we are not done with this yet. We are already thinking about giving you even more freedom to extend the resolver compiler by injecting proper logic that runs in the resolver pipeline. We essentially want to support a kind of conditional middleware, where we will append middleware depending on what you inject into your resolver. We have not fully solved all the issues around this yet and have moved this to Hot Chocolate 13.
 
-# Dynamic Schemas
+## Dynamic Schemas
 
 While static schemas created with C# or GraphQL SDL are very simple to build with Hot Chocolate, it was pretty challenging to build dynamic schemas based on JSON files or database tables. It was achievable, like in the case of schema stitching, but it was pretty tricky, and you needed to know quite a lot about the internals of the type system. With Hot Chocolate 12, we are opening up the type system quite a lot to allow you to create types in an unsafe way.
 
@@ -329,7 +329,7 @@ A complete example of a dynamic schema with hot-reload can be found [here](https
 
 We also added further improvements to the type initialization to allow type interceptors to register new types. Also, on this end, you can now hook into the type initialization to analyze the types registered by a user and then create further types based on the initial schema. Where type modules generate types based on an external component or data source, type interceptors allow you to generate types based on types. This can be useful if you, for instance, create a filter API that is based on the output types provided by a user.
 
-# Schema-First
+## Schema-First
 
 Another area where we have invested for Hot Chocolate 12 was schema-first. At its very beginning, Hot Chocolate was a schema-first library that developed more and more into a code-first / annotation-based library. If we look back at Hot Chocolate 11, then it almost looked like schema-first was an afterthought. With Hot Chocolate 12, we are bringing schema-first up to par with code-first and the annotation-based approach. This means that we also did some API refactoring and kicked out the old binding APIs. We did these breaking changes to align APIs of the various approaches.
 
@@ -547,7 +547,7 @@ But for the time being, schema-first got a big update with this release, and we 
 
 The schema-first demo can be found [here](https://github.com/ChilliCream/hotchocolate-examples/tree/master/misc/SchemaFirst).
 
-# DataLoader
+## DataLoader
 
 Another component that got a massive overhaul is DataLoader. It was also one reason the release candidate phase stretched so far since we had lots of issues with the changes in user projects. First, as we already said we would do, we moved all the DataLoader classes into the `GreenDonut` library, meaning that the various DataLoader no longer reside in `HotChocolate.Types`. Apart from that, we have refactored a lot to allow DataLoader to pool more of its objects and use a unified cache for entities. This unified cache allows better control of how much memory can be allocated by a single request and lets us do cross DataLoader updates. Essentially, one DataLoader can now fill the cache for another DataLoader. Cross DataLoader updates often happen when you have entities that can be looked up by multiple keys, like a user that can be fetched by its name or by its id.
 
@@ -579,7 +579,7 @@ services.AddGraphQLServer()
     ...
 ```
 
-# Stream and Defer
+## Stream and Defer
 
 With Hot Chocolate 11, we introduced the `@defer` directive, which allows you to defer parts of your query to get the most important data first, and de-prioritize the execution of more expensive parts of your query.
 
@@ -597,7 +597,7 @@ With Hot Chocolate 12, we are now introducing the `@stream` directive, which all
 
 Stream and defer both work with Banana Cake Pop if your browser is chrome based. We already have an update in the works to make it work with Safari. We will issue this BCP update with Hot Chocolate 12.1.
 
-# ASP.NET Core improvements
+## ASP.NET Core improvements
 
 Hot Chocolate neatly integrates with ASP.NET core, and with a simple `MapGraphQL`, you get a GraphQL over HTTP spec-compliant endpoint. This simple `MapGraphQL` is great when you get started with Hot Chocolate but limiting when you go to production and have different authorization requirements for various aspects of the GraphQL transport layer.
 
@@ -613,7 +613,7 @@ Hot Chocolate 12 still keeps its `MapGraphQL` around but now also provides a spe
 
 These new map methods will allow you to pass in a configuration as you can with `MapGraphQL`.
 
-# Banana Cake Pop
+## Banana Cake Pop
 
 After Hot Chocolate 11, we started reworking Banana Cake Pop and rethinking what we wanted to enable with our GraphQL IDE. Hot Chocolate 12 now incorporates preview 14 of the new Banana Cake Pop, and we will deliver the final version of the new Banana Cake Pop IDE with Hot Chocolate 12.1 at the end of October.
 
@@ -623,7 +623,7 @@ Banana Cake Pop is now again available as middleware and application for Windows
 
 [Download](https://bananacakepop.com) the new BCP preview today and help us make this the best GraphQL IDE out there. We still have lots to do to get to that point, but people following us on slack can see the progress. We will soon have the next preview available, which will make a significant jump in functionality.
 
-# The little things that will make your life easier
+## The little things that will make your life easier
 
 Apart from our big-ticket items, we also have invested in smaller things that will help make Hot Chocolate easier to learn and better to use.
 
@@ -803,7 +803,7 @@ builder.Services
 
 Speaking of errors, we have put a lot of effort into providing better errors. One of these efforts resulted in splitting the infamous error `HC0016` into multiple errors that now clearly outline the issue with invalid variable inputs. It's often these little things that save users from frustrations when searching for issues.
 
-# Outlook
+## Outlook
 
 Hot Chocolate 12 is a release where we put a lot of work into the core of the server. In most cases, an upgrade from Hot Chocolate 11 to Hot Chocolate 12 should be just updating the package.
 

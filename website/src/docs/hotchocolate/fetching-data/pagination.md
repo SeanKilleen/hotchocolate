@@ -8,7 +8,7 @@ Pagination is one of the most common problems that we have to solve when impleme
 
 Pagination solves this problem by giving the consumer the ability to fetch a set in chunks.
 
-# Connections
+## Connections
 
 _Connections_ are a standardized way to expose pagination to clients.
 
@@ -435,7 +435,7 @@ var connection = new Connection<User>(
     getTotalCount: cancellationToken => ValueTask.FromResult(0));
 ```
 
-# Offset Pagination
+## Offset Pagination
 
 > Note: While we support _offset-based_ pagination, we highly encourage the use of [_Connections_](#connections) instead. _Connections_ provide an abstraction which makes it easier to switch to another pagination mechanism later on.
 
@@ -756,7 +756,7 @@ var collectionSegment = new CollectionSegment<User>(
     getTotalCount: cancellationToken => ValueTask.FromResult(0));
 ```
 
-# Providers
+## Providers
 
 The `UsePaging` and `UseOffsetPaging` middleware provide a unified way of applying pagination to our resolvers. Depending on the data source used within the resolver the pagination mechanism needs to be different though. Hot Chocolate includes so called paging providers that allow us to use the same API, e.g. `UsePaging`, but for different data sources, e.g. MongoDB and SQL.
 
@@ -818,7 +818,7 @@ services
 
 If no paging providers have been registered, a default paging provider capable of handling `IEnumerable<T>` and `IQueryable<T>` is used.
 
-# PagingOptions
+## PagingOptions
 
 `PagingOptions` can either be defined on a per-field basis or [globally](#pagination-defaults).
 
@@ -834,7 +834,7 @@ The following options can be configured.
 | `InferConnectionNameFromField` | `true`  | Infer the name of the _Connection_ from the field name rather than its type.        |
 | `ProviderName`                 | `null`  | The name of the pagination provider to use.                                         |
 
-# Pagination defaults
+## Pagination defaults
 
 If we want to enforce consistent pagination defaults throughout our app, we can do so by setting the global `PagingOptions`.
 
@@ -855,7 +855,7 @@ public class Startup
 
 [Learn more about possible PagingOptions](#pagingoptions)
 
-# Types of pagination
+## Types of pagination
 
 In this section we will look at the most common pagination approaches and their downsides. There are mainly two concepts we find today: _offset-based_ and _cursor-based_ pagination.
 

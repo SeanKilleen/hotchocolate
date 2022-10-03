@@ -4,7 +4,7 @@ title: Migrate from Hot Chocolate GraphQL server 11 to 12
 
 This guide will walk you through the manual migration steps to get your Hot Chocolate GraphQL server to version 12.
 
-# Resolvers
+## Resolvers
 
 We have reworked the resolver compiler and are now demanding that the `ParentAttribute` is used when an argument is referring to the parent object.
 This is done since in some cases people want to get the parent object which is the same runtime type as an argument value.
@@ -27,7 +27,7 @@ public string MyResolver([Parent] Person parent, string additionalInput)
 }
 ```
 
-# Scalars
+## Scalars
 
 We changed some defaults around scalars. These new defaults can break your existing schema but are, in general, better for newcomers and align better with the overall GraphQL ecosystem. Of course, you can naturally opt out of these new defaults to preserve your current schema's integrity.
 
@@ -69,7 +69,7 @@ services
     .AddType(() => new UrlType("Url"));
 ```
 
-# Pagination
+## Pagination
 
 ## ConnectionType
 
@@ -162,7 +162,7 @@ services
 
 [Reference](/docs/hotchocolate/fetching-data/pagination#providers)
 
-# Records
+## Records
 
 With version 11, we added support for records and added the ability to infer attributes from parameters. This, in the end, leads to more errors than benefits. With version 12, we removed this feature. Use the official' property' keyword to write records in C# short-hand syntax when annotating properties.
 
@@ -170,13 +170,13 @@ With version 11, we added support for records and added the ability to infer att
 public record Foo([property: ID] string Id);
 ```
 
-# Instrumentation
+## Instrumentation
 
 We added more instrumentation events and generalized more how one can tap into our internal events. The class `DiagnosticEventListener` is now obsolete and replaced with `ExecutionDiagnosticEventListener`. This is due to new event listener classes like `DataLoaderDiagnosticEventListener`. Most virtual methods previously returning IActivityScope now return IDisposable.
 
 [Learn more about instrumentation](/docs/hotchocolate/server/instrumentation)
 
-# Relay
+## Relay
 
 Previously the configuration of the Relay integration was focused around the `EnableRelaySupport()` method. It allowed you to enable Global Object Identification and automatically adding a query field to mutation payloads.
 
@@ -238,7 +238,7 @@ If you just want to enable the feature without further configuration, you can om
 
 [Learn more about Query field in Mutation payloads](/docs/hotchocolate/defining-a-schema/relay#query-field-in-mutation-payloads)
 
-# DataLoader
+## DataLoader
 
 We have consolidated the DataLoader base classes into the GreenDonut package which has no dependency on any HotChocolate packages. This allows for people using DataLoader in their business layer without having to reference GraphQL related packages. In your DataLoader classes the namespace `HotChocolate.Fetching` and `HotChocolate.DataLOader` are no longer needed.
 
@@ -276,7 +276,7 @@ public class CustomBatchDataLoader : BatchDataLoader<string, string?>
 
 Allowing the DI to inject the options will allow the DataLoader to use the new shared pooled cache objects.
 
-# Custom naming conventions
+## Custom naming conventions
 
 If you're using a custom naming convention and have xml documentation enabled, you'll need to modify the way the naming convention is hooked up
 else your comments will disappear from your schema.
@@ -294,7 +294,7 @@ services
     .AddGraphQLServer()
     .AddConvention<INamingConventions>(sp => new CustomNamingConventions()) // or
     .AddConvention<INamingConventions, CustomNamingConventions>();
-```  
+```
 
 **v12**
 
@@ -305,7 +305,7 @@ public class CustomNamingConventions : DefaultNamingConventions
         : base(documentationProvider) { }
 }
 
-IReadOnlySchemaOptions capturedSchemaOptions;  
+IReadOnlySchemaOptions capturedSchemaOptions;
 services
     .AddGraphQLServer()
     .ModifyOptions(opt => capturedSchemaOptions = opt)
@@ -313,11 +313,11 @@ services
         new XmlDocumentationProvider(
             new XmlDocumentationFileResolver(
                 capturedSchemaOptions.ResolveXmlDocumentationFileName),
-            sp.GetApplicationService<ObjectPool<StringBuilder>>() 
+            sp.GetApplicationService<ObjectPool<StringBuilder>>()
                 ?? new NoOpStringBuilderPool())));
-```  
+```
 
-# Miscellaneous
+## Miscellaneous
 
 * `IObjectField`
   * If you were using `IObjectField.Member`, you'll likely want to move to `IObjectField.ResolverMember` (as `.Member` can be `null` in some cases now where it previously wasn't; and `.ResolverMember` will fall back to `.Member`).

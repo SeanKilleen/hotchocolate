@@ -49,7 +49,7 @@ The execution of a request finishes, once each resolver of the selected fields h
 
 _This is of course an oversimplification that differs from the actual implementation._
 
-# Defining a Resolver
+## Defining a Resolver
 
 Resolvers can be defined in a way that should feel very familiar to C# developers, especially in the Annotation-based approach.
 
@@ -241,7 +241,7 @@ public class QueryType : ObjectType
 }
 ```
 
-# Arguments
+## Arguments
 
 We can access arguments we defined for our resolver like regular arguments of a function.
 
@@ -249,7 +249,7 @@ There are also specific arguments that will be automatically populated by Hot Ch
 
 [Learn more about arguments](/docs/hotchocolate/v11/defining-a-schema/arguments)
 
-# Injecting Services
+## Injecting Services
 
 Resolvers integrate nicely with `Microsoft.Extensions.DependecyInjection`.
 We can access all registered services in our resolvers.
@@ -422,7 +422,7 @@ public class Query
 }
 ```
 
-# Accessing parent values
+## Accessing parent values
 
 The resolver of each field on a type has access to the value that was resolved for said type.
 

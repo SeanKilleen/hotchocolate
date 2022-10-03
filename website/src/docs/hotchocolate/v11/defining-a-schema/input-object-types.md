@@ -15,7 +15,7 @@ input BookInput {
 }
 ```
 
-# Usage
+## Usage
 
 Input object types can be defined like the following.
 

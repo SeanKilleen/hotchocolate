@@ -27,7 +27,7 @@ enum UserRole {
 }
 ```
 
-# Usage
+## Usage
 
 We can define descriptions like the following.
 
@@ -151,7 +151,7 @@ services
 </Schema>
 </ExampleTabs>
 
-# XML Documentation
+## XML Documentation
 
 Hot Chocolate provides the ability to automatically generate API documentation from our existing [XML documentation](https://docs.microsoft.com/dotnet/csharp/codedoc).
 
@@ -222,7 +222,7 @@ public class CustomNamingConventions : DefaultNamingConventions
     // Before
     public CustomNamingConventions()
         : base() { }
-  
+
     // After
     public CustomNamingConventions(IDocumentationProvider documentationProvider)
         : base(documentationProvider) { }
@@ -234,7 +234,7 @@ public class CustomNamingConventions : DefaultNamingConventions
 
 // After
 IReadOnlySchemaOptions capturedSchemaOptions;
-  
+
 services
     .AddGraphQLServer()
     .ModifyOptions(opt => capturedSchemaOptions = opt)
@@ -242,7 +242,7 @@ services
         new XmlDocumentationProvider(
             new XmlDocumentationFileResolver(
                 capturedSchemaOptions.ResolveXmlDocumentationFileName),
-            sp.GetApplicationService<ObjectPool<StringBuilder>>() 
+            sp.GetApplicationService<ObjectPool<StringBuilder>>()
               ?? new NoOpStringBuilderPool())));
-```  
-  
+```
+

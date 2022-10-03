@@ -4,7 +4,7 @@ title: "Automatic persisted queries"
 
 This guide will walk you through how automatic persisted queries work and how you can set them up with the Hot Chocolate GraphQL server.
 
-# How it works
+## How it works
 
 The automatic persisted queries protocol was originally specified by Apollo and represent an evolution of the persisted query feature that many GraphQL servers implement. Instead of storing persisted queries ahead of time, the client can store queries dynamically. This preserves the original proposal's performance benefits but removes the friction of setting up build processes that post-process the client applications source code.
 
@@ -18,7 +18,7 @@ Hot Chocolate server will inspect the incoming request for a query id or a full 
 
 If the query storage does not contain a query that matches the sent query id, the Hot Chocolate server will return an error result that indicates that the query was not found (this will only happen the first time a client asks for a certain query). The client application will then send in a second request with the specified query id and the complete GraphQL query. This will trigger Hot Chocolate server to store this new query in its query storage and, at the same time, execute the query and returning the result.
 
-# Setup
+## Setup
 
 In the following tutorial, we will walk you through creating a Hot Chocolate GraphQL server and configuring it to support automatic persisted queries.
 

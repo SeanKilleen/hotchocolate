@@ -100,7 +100,7 @@ public class Query
 }
 ```
 
-# Execution
+## Execution
 
 With a data loader, you can fetch entities with a key.
 These are the two generics you have in the class data loaders:
@@ -114,7 +114,7 @@ public class BatchDataLoader<TId, TEntity>
 The execution engine of Hot Chocolate tries to batch as much as possible.
 It executes resolvers until the queue is empty and then triggers the data loader to resolve the data for the waiting resolvers.
 
-# Data Consistency
+## Data Consistency
 
 Dataloader do not only batch calls to the database, they also cache the database response.
 A data loader guarantees data consistency in a single request.
@@ -122,7 +122,7 @@ If you load an entity with a data loader in your request more than once, it is g
 
 Data loaders do not fetch an entity if there is already an entity with the requested key in the cache.
 
-# Types of Data loaders
+## Types of Data loaders
 
 In Hot Chocolate you can declare data loaders in two different ways.
 You can separate the data loading concern into separate classes or you can use a delegate in the resolver to define data loaders on the fly.
@@ -267,7 +267,7 @@ public Task<Person> GetPerson(string id, IResolverContext context, [Service]IPer
 }
 ```
 
-# Stacked DataLoader Calls
+## Stacked DataLoader Calls
 
 This is more like an edge case that is supported than a certain type of data loader. Sometimes we have more complex resolvers that might first fetch data from one data loader and use that to fetch data from the next.
 

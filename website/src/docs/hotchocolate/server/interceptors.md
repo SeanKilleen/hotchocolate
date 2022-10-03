@@ -4,7 +4,7 @@ title: Interceptors
 
 Interceptors allow us to hook into protocol-specific events. We can, for example, intercept an incoming HTTP request or a client connecting or disconnecting a WebSocket session.
 
-# IHttpRequestInterceptor
+## IHttpRequestInterceptor
 
 Each GraphQL request sent via HTTP can be intercepted using an `IHttpRequestInterceptor` before it is being executed. Per default Hot Chocolate registers a `DefaultHttpRequestInterceptor` for this purpose.
 
@@ -55,7 +55,7 @@ Most of the configuration will be done through the `IQueryRequestBuilder`, injec
 
 If we want to fail the request, before it is being executed, we can throw a `GraphQLException`. The middleware will then translate this exception to a proper GraphQL error response for the client.
 
-# ISocketSessionInterceptor
+## ISocketSessionInterceptor
 
 Each GraphQL request sent over WebSockets can be intercepted using an `ISocketSessionInterceptor` before it is being executed. Since WebSockets are long lived connections, we can also intercept specific lifecycle events, such as connecting or disconnecting. Per default Hot Chocolate registers a `DefaultSocketSessionInterceptor` for this purpose.
 
@@ -157,7 +157,7 @@ If we want to fail the request, before it is being executed, we can throw a `Gra
 
 This method is invoked, once a client closes the WebSocket connection or the connection is terminated in any other way.
 
-# IQueryRequestBuilder
+## IQueryRequestBuilder
 
 The `IQueryRequestBuilder` allows us to influence the execution of a GraphQL request.
 

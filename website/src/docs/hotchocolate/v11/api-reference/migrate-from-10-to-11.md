@@ -20,7 +20,7 @@ We have now added the most common packages to the Hot Chocolate core. But there 
 | HotChocolate.PersistedQueries.FileSystem | This package provides a persisted query storage for the file system.                                                                                                 |
 | HotChocolate.PersistedQueries.Redis      | This package provides a persisted query storage for Redis.                                                                                                           |
 
-# ASP.NET Core
+## ASP.NET Core
 
 One of the main focuses of version 11 was to create a new configuration API that brings all our builders together into one unified API. This also means that we had to introduce breaking changes to the way we
 configure schemas.
@@ -144,7 +144,7 @@ Another variant here is to use our scoped service feature that scopes services f
 
 https://github.com/ChilliCream/graphql-workshop
 
-# Schema / Resolvers
+## Schema / Resolvers
 
 ### Field ordering
 
@@ -498,7 +498,7 @@ Since all configuration APIs were integrated into one, we needed to make it more
     builder.UseField<CustomMiddleware>()
 ```
 
-# Stitching
+## Stitching
 
 The schema stitching configuration API has been completely integrated into the new configuration API. This means that a Gateway is nothing more than a GraphQL schema, which will make it easier for new users. However, you will need to completely rewire your stitching configuration.
 
@@ -701,7 +701,7 @@ services.AddHttpResultSerializer(
 );
 ```
 
-# Testing
+## Testing
 
 We have added a couple of test helpers to make the transition to the new configuration API easier.
 

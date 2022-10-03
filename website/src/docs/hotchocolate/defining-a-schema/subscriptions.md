@@ -25,7 +25,7 @@ subscription {
 
 Hot Chocolate implements subscriptions via WebSockets and uses the pub/sub approach of [Apollo](https://www.apollographql.com/docs/apollo-server/data/subscriptions/#the-pubsub-class) for triggering subscriptions.
 
-# Usage
+## Usage
 
 A subscription type can be defined like the following.
 
@@ -134,7 +134,7 @@ A subscription type is just a regular object type, so everything that applies to
 
 [Learn more about object types](/docs/hotchocolate/defining-a-schema/object-types)
 
-# Transport
+## Transport
 
 After defining the subscription type, we need to add the WebSockets middleware to our request pipeline.
 
@@ -188,7 +188,7 @@ services.AddRedisSubscriptions((sp) =>
 
 Our Redis subscription provider uses the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) Redis client underneath.
 
-# Publishing Events
+## Publishing Events
 
 To publish events and trigger subscriptions, we can use the `ITopicEventSender`. The `ITopicEventSender` is an abstraction for the registered event publishing provider. Using this abstraction allows us to seamlessly switch between subscription providers, when necessary.
 

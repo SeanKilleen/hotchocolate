@@ -6,7 +6,7 @@ title: "Tooling"
 
 StrawberryShake comes with some tools that integrate into the dotnet CLI and help to setup a project or update the schema of a project.
 
-# Initialize Project
+## Initialize Project
 
 `dotnet graphql init http://localhost/graphql`
 
@@ -26,7 +26,7 @@ The `init` command allows you to initialize a C# project for use with Strawberry
 | --scope            | The scope (can be used multiple times) that shall be used when interacting with the `tokenEndpoint`. |
 | -x or --headers    | The headers adds additional custom headers. Example: --headers key1=value1 --headers key2=value2     |
 
-# Update Project
+## Update Project
 
 `dotnet graphql update`
 
@@ -46,7 +46,7 @@ The update command allows you to update the local GraphQL schema with the newest
 | --scope         | The scope (can be used multiple times) that shall be used when interacting with the `tokenEndpoint`. |
 | -x or --headers | The headers adds additional custom headers. Example: --headers key1=value1 --headers key2=value2     |
 
-# Download Schema
+## Download Schema
 
 `dotnet graphql download http://localhost/graphql`
 

@@ -6,7 +6,7 @@ Hot Chocolate is a .NET GraphQL platform that can help you build a GraphQL layer
 
 Our API will let you start very quickly with pre-built templates that let you start in seconds.
 
-# Features
+## Features
 
 Here you will find a list of the most interesting features of Hot Chocolate.
 

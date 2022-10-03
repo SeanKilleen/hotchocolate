@@ -4,7 +4,7 @@ title: IDataLoader<TKey, TValue\>
 
 **Description:** Represents a minimal set of _DataLoader_ functionality.
 
-# Events
+## Events
 
 ---
 
@@ -15,7 +15,7 @@ Will never be raised if batching is disabled.
 
 ---
 
-# Properties
+## Properties
 
 ---
 
@@ -37,7 +37,7 @@ if caching is disabled.
 
 ---
 
-# Methods
+## Methods
 
 ---
 

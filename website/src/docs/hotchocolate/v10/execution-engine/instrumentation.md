@@ -10,7 +10,7 @@ As a developer using Hot Chocolate we can subscribe to those events and delegate
 
 This allows us to just take the information we need for a certain logging solution and for instance craft the events provided by Hot Chocolate into logging messages that fit our project.
 
-# Events
+## Events
 
 First let us have a look at what events Hot Chocolate currently provides and what they mean. Later we will walk you through how to setup an `IDiagnosticObserver`.
 
@@ -210,7 +210,7 @@ public void OnResolverError(
 }
 ```
 
-# How to subscribe
+## How to subscribe
 
 In order to subscribe to the Hot Chocolate instrumentation events, you have to create a class that implements the marker interface `IDiagnosticObserver`.
 
@@ -330,7 +330,7 @@ QueryExecutionBuilder
     .Populate(services);
 ```
 
-# Examples
+## Examples
 
 We have created a little example project that demonstrates how you can delegate Hot Chocolate events to the ASP.NET core logger API.
 
@@ -340,6 +340,6 @@ We also have an implementation that we use in production that builds upon Micros
 
 [ETW Example](https://github.com/ChilliCream/thor-client/tree/master/src/Clients/HotChocolate)
 
-# Blogs
+## Blogs
 
 [Tracing with Hot Chocolate](/blog/2019/03/19/logging-with-hotchocolate)

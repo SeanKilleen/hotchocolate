@@ -6,7 +6,7 @@ title: "Persisted Queries"
 
 This guide will walk you through how persisted queries work and how you can set them up with Strawberry Shake.
 
-# How it works
+## How it works
 
 Persisted queries is a feature that Facebook uses internally for a long time to improve the performance of Facebook with their relay client.
 
@@ -32,7 +32,7 @@ sequenceDiagram
     GraphQL Server->>Generated Client: Response: { "data": { "foo": { ... } } }
 ```
 
-# Setup
+## Setup
 
 In the following tutorial, we will walk you through creating a Strawberry Shake GraphQL client and configuring it to support persisted queries.
 

@@ -5,7 +5,7 @@ title: "Authentication"
 To access a protected API with Strawberry Shake, you need to proof the user's identity to the server.
 Each network protocol of Strawberry Shake handles authentication a bit different.
 
-# HTTP
+## HTTP
 
 Strawberry Shake uses the `HttpClientFactory` to generate a `HttpClient` on every request.
 You can either register a `HttpClient` directly on the `ServiceCollection` or use the `ConfigureHttpClient` method on the client builder.
@@ -61,7 +61,7 @@ services.AddHttpClient(
 services.AddConferenceClient();
 ```
 
-# Websockets
+## Websockets
 
 There are three common ways to do authentication a request over a web socket. You can either specify the authentication headers, use cookies or send the access token with the first message over the socket.
 Similar to the `HttpClient`, you can configure the a web socket client over the client builder or the `ServiceCollection`.

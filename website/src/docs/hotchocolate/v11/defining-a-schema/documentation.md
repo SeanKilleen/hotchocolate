@@ -27,7 +27,7 @@ enum UserRole {
 }
 ```
 
-# Usage
+## Usage
 
 We can define descriptions like the following.
 
@@ -151,7 +151,7 @@ services
 </Schema>
 </ExampleTabs>
 
-# XML Documentation
+## XML Documentation
 
 Hot Chocolate provides the ability to automatically generate API documentation from our existing [XML documentation](https://docs.microsoft.com/dotnet/csharp/codedoc).
 

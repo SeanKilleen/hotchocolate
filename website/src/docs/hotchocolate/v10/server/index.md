@@ -4,7 +4,7 @@ title: ASP.NET
 
 Hot Chocolate supports ASP.NET Core and ASP.NET Framework out of the box. This means you can get started very quickly with both variants. There are example projects for both in our [repository](https://github.com/ChilliCream/hotchocolate/tree/master/examples) on GitHub.
 
-# HTTP Usage
+## HTTP Usage
 
 Hot Chocolate has implemented the [recommendations](https://graphql.org/learn/serving-over-http/) for serving GraphQL over HTTP. We are also supporting request batching over HTTP and subscriptions over websocket.
 
@@ -164,15 +164,15 @@ By default, we are serializing the result as a JSON array, but you can change th
 
 More about batching can be found [here](/docs/hotchocolate/v10/execution-engine/batching).
 
-# WebSocket Support
+## WebSocket Support
 
 We have implemented the [GraphQL over WebSocket Protocol](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md) specified by Apollo.
 
-# SignalR Support
+## SignalR Support
 
 > We are still working on SignalR support and will publish the documentation once we are finished.
 
-# ASP.NET Core
+## ASP.NET Core
 
 The ASP.NET Core implementation is implemented modular. This means that each protocol that we have implemented is represented by a specific middleware that is provided as a separate package. Fear not we also provide a meta-package that bundles all the middleware components together.
 
@@ -209,7 +209,7 @@ It is also possible to setup only the components and services that you need. The
 
 Instead of using `UseGraphQL` you can opt with these packages to use specific middleware components like `UseGraphQLHttpGet`.
 
-# ASP.NET Framework
+## ASP.NET Framework
 
 The ASP.NET Framework implementation is implemented modular on top of OWIN. This means that each protocol that we have implemented is represented by a specific middleware that is provided as a separate package. Fear not we also provide a meta-package that bundles all the middleware components together.
 
@@ -247,7 +247,7 @@ It is also possible to setup only the components and services that you need. The
 
 Instead of using `UseGraphQL` you can opt with these packages to use specific middleware components like `UseGraphQLHttpGet`.
 
-# Custom Serializers
+## Custom Serializers
 
 There are two response serializers that can be customized. By default we have added JSON serializers. You can customize serialization by implementing the following interfaces:
 

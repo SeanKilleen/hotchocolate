@@ -40,7 +40,7 @@ input StringOperationFilterInput {
 }
 ```
 
-# Getting started
+## Getting started
 
 Filtering is part of the `HotChocolate.Data` package. You can add the dependency with the `dotnet` cli
 
@@ -102,7 +102,7 @@ public class QueryType : ObjectType<Query>
 
 > ⚠️ **Note:** If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjections > UseFiltering > UseSorting
 
-# Customization
+## Customization
 
 Under the hood, filtering is based on top of normal Hot Chocolate input types. You can easily customize them with a very familiar fluent interface. The filter input types follow the same `descriptor` scheme as you are used to from the normal input types. Just extend the base class `FilterInputType<T>` and override the descriptor method.
 
@@ -199,7 +199,7 @@ public class QueryType : ObjectType<Query>
 </Schema>
 </ExampleTabs>
 
-# "and" / "or" Filter
+## "and" / "or" Filter
 
 There are two built in fields.
 
@@ -261,7 +261,7 @@ public class UserFilterType : FilterInputType<User>
 }
 ```
 
-# Filter Types
+## Filter Types
 
 ## Boolean Filter
 
@@ -583,7 +583,7 @@ input UserFilterInput {
 }
 ```
 
-# Filter Conventions
+## Filter Conventions
 
 If you want to change the behavior filtering globally, you want to create a convention for your filters. The filter convention comes with a fluent interface that is close to a type descriptor.
 

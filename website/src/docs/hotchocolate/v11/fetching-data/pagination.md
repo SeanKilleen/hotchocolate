@@ -8,7 +8,7 @@ Pagination is one of the most common problems that we have to solve when impleme
 
 Pagination solves this problem by giving the consumer the ability to fetch a set in chunks.
 
-# Connections
+## Connections
 
 _Connections_ are a standardized way to expose pagination to clients.
 
@@ -233,7 +233,7 @@ var connection = new Connection<User>(
     getTotalCount: cancellationToken => ValueTask.FromResult(0));
 ```
 
-# Offset Pagination
+## Offset Pagination
 
 > Note: While we support _offset-based_ pagination, we highly encourage the use of [_Connections_](#connections) instead. _Connections_ provide an abstraction which makes it easier to switch to another pagination mechanism later on.
 
@@ -445,7 +445,7 @@ var collectionSegment = new CollectionSegment<User>(
     getTotalCount: cancellationToken => ValueTask.FromResult(0));
 ```
 
-# Pagination defaults
+## Pagination defaults
 
 If we want to enforce consistent pagination defaults throughout our app, we can do so, by setting the global `PagingOptions`.
 
@@ -465,7 +465,7 @@ public class Startup
 }
 ```
 
-# Types of pagination
+## Types of pagination
 
 In this section we will look at the most common pagination approaches and their downsides. There are mainly two concepts we find today: _offset-based_ and _cursor-based_ pagination.
 

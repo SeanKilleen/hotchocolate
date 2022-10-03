@@ -8,7 +8,7 @@ Scalar types are the primitives of our schema and can hold a specific type of da
 
 Besides basic scalars like `String` and `Int`, we can also create custom scalars like `CreditCardNumber` or `SocialSecurityNumber`. These custom scalars can greatly enhance the expressiveness of our schema and help new developers to get a grasp of our API.
 
-# GraphQL scalars
+## GraphQL scalars
 
 The GraphQL specification defines the following scalars.
 
@@ -174,7 +174,7 @@ public class Startup
 
 Notice how our code uses `int` for the `Id`, but in a request / response it would be serialized as a `string`. This allows us to switch the CLR type of our `Id`, without affecting the schema and our clients.
 
-# GraphQL Community Scalars
+## GraphQL Community Scalars
 
 The website <https://www.graphql-scalars.com/> hosts specifications for GraphQL scalars defined by the community. The community scalars use the `@specifiedBy` directive to point to the spec that is implemented.
 
@@ -196,7 +196,7 @@ scalar DateTime @specifiedBy(url: "https://www.graphql-scalars.com/date-time/")
 src="https://www.youtube.com/embed/gO3bNKBmXZM"frameborder="0"
 allowfullscreen></iframe>
 
-# .NET Scalars
+## .NET Scalars
 
 In addition to the scalars defined by the specification, Hot Chocolate also supports the following set of scalar types:
 
@@ -297,7 +297,7 @@ If we want to access an object dynamically without serializing it to a strongly 
 
 Lists can be accessed generically by getting them as `IReadOnlyList<object>` or as `ListValueNode`.
 
-# Additional Scalars
+## Additional Scalars
 
 We also offer a separate package with scalars for more specific use cases.
 
@@ -411,7 +411,7 @@ public class Startup
 
 This package was originally developed by [@shoooe](https://github.com/shoooe).
 
-# Binding behavior
+## Binding behavior
 
 Hot Chocolate binds most of the native .NET types automatically.
 A `System.String` is for example automatically mapped to a `StringType` in the schema.
@@ -434,7 +434,7 @@ services
 
 Hot Chocolate only exposes the used scalars in the generated schema, keeping it simple and clean.
 
-# Custom Converters
+## Custom Converters
 
 We can reuse existing scalar types and bind them to different runtime types by specifying converters.
 
@@ -465,7 +465,7 @@ public class Startup
 }
 ```
 
-# Scalar Options
+## Scalar Options
 
 Some scalars like `TimeSpan` or `Uuid` have options like their serialization format.
 
@@ -477,7 +477,7 @@ services
    .AddType(new UuidType('D'));
 ```
 
-# Custom Scalars
+## Custom Scalars
 
 All scalars in Hot Chocolate are defined through a `ScalarType`.
 The easiest way to create a custom scalar is to extend `ScalarType<TRuntimeType, TLiteral>`.

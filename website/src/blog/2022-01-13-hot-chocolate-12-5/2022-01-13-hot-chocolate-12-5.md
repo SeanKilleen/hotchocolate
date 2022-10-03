@@ -11,7 +11,7 @@ authorImageUrl: https://avatars1.githubusercontent.com/u/9714350?s=100&v=4
 
 Today we have released Hot Chocolate 12.5, and this release is packed with new features. We put a focus on adding some early spec proposals into this release. We also have completely overhauled our GraphQL IDE Banana Cake Pop to include feedback from our community. Lastly, we picked up an issue created by Simon to support OpenTelemetry.
 
-# Banana Cake Pop
+## Banana Cake Pop
 
 Let us start with the most visible change to Hot Chocolate. With Hot Chocolate 12.5, we have integrated Banana Cake Pop iteration 22, which introduces themes support. One of the top requests for BCP by users was a Dark mode. With the new version, you can now switch between our light and our dark theme. We will add more themes with one of the subsequent iterations.
 
@@ -23,7 +23,7 @@ We put another focus on discoverability. Many people getting into BCP had diffic
 
 The new Banana Cake Pop version is now available online at <https://eat.bananacakepop.com>, as an application that you can download at <https://bananacakepop.com> or as a middleware in the new Hot Chocolate 12.5.
 
-# Open Telemetry
+## Open Telemetry
 
 Hot Chocolate for a long time provides instrumentation events that can be used to add your logging solution. By doing this, we did not bind Hot Chocolate to a specific logging/tracing solution or a specific use-case.
 
@@ -67,7 +67,7 @@ The complete example can be found [here](https://github.com/ChilliCream/hotchoco
 
 Docs can be found [here](https://chillicream.com/docs/hotchocolate/server/instrumentation/#opentelemetry).
 
-# `OneOf` Input Objects
+## `OneOf` Input Objects
 
 One of the most asked-for features in GraphQL is input unions. The GraphQL working group has been discussing this feature for a long time, and we have explored multiple roads to achieve this. The most likely candidate has become the _`OneOf` Input Object_ representing a structural union. A structural union means that _`OneOf` Input Object_ is a special kind of input object where each field represents one choice. The _`OneOf` Input Object_ will only allow one field to be set, and the value can not be null. The type system enforces the rules for `OneOf` Input Objects_.
 
@@ -131,7 +131,7 @@ Docs can be found [here](https://chillicream.com/docs/hotchocolate/defining-a-sc
 
 The current GraphQL spec RFC can be found [here](https://github.com/graphql/graphql-spec/pull/825).
 
-# Client-Controlled Nullability
+## Client-Controlled Nullability
 
 Client-Controlled nullability gives more power to the consumer of a GraphQL API. It allows us to specify error boundaries in GraphQL by defining if a field shall be nullable or required in our GraphQL request. To give this power to the user, the RFC introduces new query syntax to let the user override type nullability on fields and specify where error boundaries are in the GraphQL request.
 
@@ -229,6 +229,6 @@ At the moment, Banana Cake Pop is not updated for the new syntax yet. We will do
 
 The current GraphQL spec RFC can be found [here](https://github.com/graphql/graphql-spec/pull/895).
 
-# Conclusion
+## Conclusion
 
 We have implemented a ton of other smaller additions and bug fixes. Hot Chocolate 12.5 pushes further ahead and allows you to opt into the newest GraphQL spec proposals and drafts. At the GraphQL working group, we are currently discussing great new additions to the GraphQL spec like fragment modularity and object identity. Together, stream/defer, `oneof`, fragment modularity, object identity, and client-controlled nullability could make GraphQL so much better and help us solve fundamental problems in interacting with our data graphs. We have invested in these new features early and are iterating on these as the spec text matures.

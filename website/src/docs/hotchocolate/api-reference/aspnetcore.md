@@ -16,7 +16,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-# GraphQL over HTTP Spec
+## GraphQL over HTTP Spec
 
 The following GraphQL requests follow the current GraphQL over HTTP spec draft.
 
@@ -156,7 +156,7 @@ The incremental delivery is at the moment at the RFC stage and is specified [her
 
 Incremental delivery is used with `@defer`, `@stream`, and with request batching.
 
-# Additional Requests
+## Additional Requests
 
 Apart from the requests defined by the GraphQL over HTTP spec, Hot Chocolate allows you to batch requests, download the GraphQL SDL, and many more things.
 
@@ -286,7 +286,7 @@ services.AddHttpResultSerializer(
 
 > More about batching can be found [here](/docs/hotchocolate/v10/execution-engine/batching).
 
-# Subscription Transport
+## Subscription Transport
 
 Subscriptions are by default delivered over WebSocket. We have implemented the [GraphQL over WebSocket Protocol](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md) specified by Apollo.
 
@@ -296,7 +296,7 @@ With version 11.1, we will add alternative transport protocols like the [new pro
 
 Moreover, we are working on allowing this protocol to be used over SignalR, which gives more flexibility to use subscriptions.
 
-# Tooling
+## Tooling
 
 The Hot Chocolate GraphQL server comes right out of the gate with excellent tooling. By default, we are mapping our GraphQL IDE Banana Cake Pop to the GraphQL endpoint. This means you just need to open your browser and navigate to the configured endpoint to send requests to your server, explore your schema, or build-up tests.
 
@@ -314,7 +314,7 @@ endpoints
         }));
 ```
 
-# Serialization
+## Serialization
 
 The Hot Chocolate GraphQL server has abstracted the result serialization with the `IHttpResultSerializer` interface. The server uses the registered implementation to resolve the HTTP status code, the HTTP content type, and the serialized response from a GraphQL execution result.
 

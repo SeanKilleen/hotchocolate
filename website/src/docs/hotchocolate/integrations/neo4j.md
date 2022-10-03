@@ -7,7 +7,7 @@ With this integration, you can translate paging, filtering, sorting, and project
 
 You can find a example project in [HotChocolate Examples](https://github.com/ChilliCream/graphql-workshop-neo4j)
 
-# Get Started
+## Get Started
 
 To use the Neo4J integration, you need to install the package `HotChocolate.Data.Neo4J`.
 
@@ -17,7 +17,7 @@ dotnet add package HotChocolate.Data.Neo4J
 
 > ⚠️ Note: All `HotChocolate.*` packages need to have the same version.
 
-# Neo4JExecutable
+## Neo4JExecutable
 
 The whole integration builds around `IExecutable<T>`.
 The execution engine picks up the `IExecutable` and executes it efficiently.
@@ -31,7 +31,7 @@ The execution engine picks up the `IExecutable` and executes it efficiently.
 public IExecutable<Person> GetPersons([ScopedService] IAsyncSession session) => new Neo4JExecutable<Person>(session);
 ```
 
-# Filtering
+## Filtering
 
 To use Neo4J filtering you need to register the convention on the schema builder:
 
@@ -75,7 +75,7 @@ WHERE person.name = 'Yorker Shorton" AND
 RETURN person {.name}
 ```
 
-# Sorting
+## Sorting
 
 To use Neo4J sorting you need to register the convention on the schema builder:
 
@@ -114,7 +114,7 @@ WHERE person.name = 'Yorker Shorton" AND
 RETURN person {.name}
 ```
 
-# Projections
+## Projections
 
 To use Neo4J projections you need to register the convention on the schema builder:
 
@@ -150,7 +150,7 @@ WHERE person.name = 'Yorker Shorton" AND
 RETURN person {.name}
 ```
 
-# Paging
+## Paging
 
 In order to use pagination with Neo4J, we have to register the Neo4J specific pagination providers.
 

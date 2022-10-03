@@ -4,7 +4,7 @@ title: Endpoints
 
 Hot Chocolate comes with a set of ASP.NET Core middleware used for making the GraphQL server available via HTTP and WebSockets. There are also middleware for hosting our GraphQL IDE [Banana Cake Pop](/docs/bananacakepop) as well as an endpoint used for downloading the schema in its SDL representation.
 
-# MapGraphQL
+## MapGraphQL
 
 We can call `MapGraphQL()` on the `IEndpointRouteBuilder` to register all of the middleware a standard GraphQL server requires.
 
@@ -141,7 +141,7 @@ public class Startup
 
 [Learn more about possible GraphQLToolOptions](#graphqltooloptions)
 
-# MapBananaCakePop
+## MapBananaCakePop
 
 We can call `MapBananaCakePop()` on the `IEndpointRouteBuilder` to serve [Banana Cake Pop](/docs/bananacakepop) on a different endpoint than the actual GraphQL endpoint.
 
@@ -291,7 +291,7 @@ The following information is collected:
 | `applicationType`    | The type of application: `app` (Electron) or `middleware`             |
 | `applicationVersion` | Version of Banana Cake Pop                                            |
 
-# MapGraphQLHttp
+## MapGraphQLHttp
 
 We can call `MapGraphQLHttp()` on the `IEndpointRouteBuilder` to make our GraphQL server available via HTTP at a specific endpoint.
 
@@ -327,7 +327,7 @@ The `GraphQLHttpOptions` are the same as the `GraphQLServerOptions` except that 
 
 [Learn more about GraphQLServerOptions](#graphqlserveroptions)
 
-# MapGraphQLWebsocket
+## MapGraphQLWebsocket
 
 We can call `MapGraphQLWebSocket()` on the `IEndpointRouteBuilder` to make our GraphQL server available via WebSockets at a specific endpoint.
 
@@ -348,7 +348,7 @@ public class Startup
 
 With the above configuration we could now issue GraphQL subscription requests via WebSocket against the `/graphql/ws` endpoint.
 
-# MapGraphQLSchema
+## MapGraphQLSchema
 
 We can call `MapGraphQLSchema()` on the `IEndpointRouteBuilder` to make our GraphQL schema available at a specific endpoint.
 

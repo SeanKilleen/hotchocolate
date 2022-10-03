@@ -26,7 +26,7 @@ type User {
 The exclamation mark (`!`) denotes that the field can never be `null`.
 This is also enforced by the execution engine. If we were to return a `null` value in the `name` resolver, the execution engine would throw an error. This prevents unexpected `null` values from causing issues in the consuming applications.
 
-# Implicit nullability
+## Implicit nullability
 
 Hot Chocolate automatically infers the nullability of the schema type from the nullability of the used CLR type.
 
@@ -42,7 +42,7 @@ Hot Chocolate automatically infers the nullability of the schema type from the n
 
 We strongly encourage the use of nullable reference types.
 
-# Explicit nullability
+## Explicit nullability
 
 We can also be explicit about the nullability of our fields.
 

@@ -19,7 +19,7 @@ type Query {
 }
 ```
 
-# Usage
+## Usage
 
 Given is the schema from above.
 
@@ -77,7 +77,7 @@ Variables:
 }
 ```
 
-# Definition
+## Definition
 
 We can define enums like the following.
 
@@ -221,7 +221,7 @@ public class QueryType : ObjectType
 }
 ```
 
-# Binding behavior
+## Binding behavior
 
 In the Annotation-based approach all enum values are implicitly included on the schema enum type. The same is true for `T` of `EnumType<T>` when using the Code-first approach.
 
@@ -314,7 +314,7 @@ public class UserRoleType : EnumType<UserRole>
 }
 ```
 
-# Naming
+## Naming
 
 Unless specified explicitly, Hot Chocolate automatically infers the names of enums and their values. Per default the name of the enum becomes the name of the enum type. When using `EnumType<T>` in Code-first, the name of `T` is chosen as the name for the enum type.
 

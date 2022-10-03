@@ -6,7 +6,7 @@ import { ExampleTabs, Annotation, Code, Schema } from "../../../components/mdx/e
 
 Global State allows us to define properties on a per-request basis to be made available to all resolvers and middleware.
 
-# Initializing Global State
+## Initializing Global State
 
 We can add Global State using the `SetProperty` method on the `IQueryRequestBuilder`. This method takes a `key` and a `value` as an argument. While the `key` needs to be a `string` the value can be of any type.
 
@@ -34,7 +34,7 @@ public class HttpRequestInterceptor : DefaultHttpRequestInterceptor
 
 [Learn more about interceptors](/docs/hotchocolate/server/interceptors)
 
-# Accessing Global State
+## Accessing Global State
 
 We can access the Global State in our resolvers like the following.
 

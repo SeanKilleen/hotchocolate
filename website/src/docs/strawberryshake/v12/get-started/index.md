@@ -14,7 +14,7 @@ In this tutorial, we will teach you:
 - How to generate source code from .graphql files, that contain operations.
 - How to use the generated client in a classical or reactive way.
 
-# Step 1: Add the Strawberry Shake CLI tools
+## Step 1: Add the Strawberry Shake CLI tools
 
 The Strawberry Shake tool will help you to setup your project to create a GraphQL client.
 
@@ -32,7 +32,7 @@ dotnet new tool-manifest
 dotnet tool install StrawberryShake.Tools --local
 ```
 
-# Step 2: Create a Blazor WebAssembly project
+## Step 2: Create a Blazor WebAssembly project
 
 Next, we will create our Blazor project so that we have a little playground.
 
@@ -54,7 +54,7 @@ dotnet new blazorwasm -n Demo
 dotnet sln add ./Demo
 ```
 
-# Step 3: Install the required packages
+## Step 3: Install the required packages
 
 Strawberry Shake supports multiple GraphQL transport protocols. In this example we will use the standard GraphQL over HTTP protocol to interact with our GraphQL server.
 
@@ -84,7 +84,7 @@ dotnet add Demo package Microsoft.Extensions.DependencyInjection
 dotnet add Demo package Microsoft.Extensions.Http
 ```
 
-# Step 4: Add a GraphQL client to your project using the CLI tools
+## Step 4: Add a GraphQL client to your project using the CLI tools
 
 To add a client to your project, you need to run the `dotnet graphql init {{ServerUrl}} -n {{ClientName}}`.
 
@@ -185,7 +185,7 @@ public class Program
 @using StrawberryShake
 ```
 
-# Step 5: Use the ConferenceClient to perform a simple fetch
+## Step 5: Use the ConferenceClient to perform a simple fetch
 
 In this section we will perform a simple fetch with our `ConferenceClient`. We will not yet look at state or other things that come with our client but just perform a simple fetch.
 
@@ -271,7 +271,7 @@ Welcome to your new app.
 
 ![Started Blazor application in Microsoft Edge](../../shared/berry_session_list.png)
 
-# Step 6: Using the built-in store with reactive APIs.
+## Step 6: Using the built-in store with reactive APIs.
 
 The simple fetch of our data works. But every time we visit the index page it will fetch the data again although the data does not change often. Strawberry Shake also comes with state management where you can control the entity store and update it when you need to. In order to best interact with the store we will use `System.Reactive` from Microsoft. Lets get started :)
 
@@ -391,7 +391,7 @@ The page will look unchanged.
 
 The Blazor application just fetched a single time from the network and now only gets the data from the store.
 
-# Step 7: Using GraphQL mutations
+## Step 7: Using GraphQL mutations
 
 In this step we will introduce a mutation that will allow us to rename a session. For this we need to change our Blazor page a bit.
 

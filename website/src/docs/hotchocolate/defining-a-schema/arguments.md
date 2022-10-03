@@ -34,7 +34,7 @@ query ($userId: ID!) {
 
 Learn more about arguments [here](https://graphql.org/learn/schema/#arguments) and variables [here](https://graphql.org/learn/queries/#variables).
 
-# Usage
+## Usage
 
 Arguments can be defined like the following.
 

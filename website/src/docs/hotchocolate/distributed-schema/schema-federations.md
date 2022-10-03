@@ -7,7 +7,7 @@ Therefore you need to configure federations in two places: the gateway schema an
 
 The schemas can either be pushed to a Redis cache and then pulled from the gateway or directly be pulled by the gateway from the downstream service.
 
-# Federation with Redis
+## Federation with Redis
 
 Hot Chocolate uses the Redis cache as a pub/sub system to signal changes on the downstream services.
 With a cache, the gateway schema is also more stable and faster in bootstrapping, because it does not require to call all downstream services on startup.
@@ -93,7 +93,7 @@ services
 
 You can find a full schema federation example here [Federated Schema with Redis](https://github.com/ChilliCream/hotchocolate-examples/tree/master/misc/Stitching/federated-with-hot-reload)
 
-# Federation with schema polling
+## Federation with schema polling
 
 You can also use federations without a Redis cache. In this case, you cannot hot reload the schema.
 The configuration is very much the same as in Redis except the `PublishToRedis` part.
@@ -162,7 +162,7 @@ public void ConfigureServices(IServiceCollection services)
 
 You can find a full schema federation with polling example here [Federated Schema with polling](https://github.com/ChilliCream/hotchocolate-examples/tree/master/misc/Stitching/federated-with-pull)
 
-# Configuration
+## Configuration
 
 By default, all the fields that are declared on `Mutation` and `Query` are exposed on the gateway.
 In case the schema you do not want to expose the root fields and prefer to define the extension points in an extension file, you can also ignore the root types for a schema on the domain service.

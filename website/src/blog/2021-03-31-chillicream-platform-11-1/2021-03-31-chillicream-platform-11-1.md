@@ -19,7 +19,7 @@ authorImageUrl: https://avatars1.githubusercontent.com/u/9714350?s=100&v=4
 
 Today we are releasing Hot Chocolate server and Strawberry Shake client 11.1. This release brings many things that we skipped for the initial release of Hot Chocolate server 11. The platform now contains four major components: Hot Chocolate server, Hot Chocolate gateway, Banana Cake Pop, and Strawberry Shake.
 
-# Strawberry Shake
+## Strawberry Shake
 
 Let us start with the biggest new feature we built for 11.1, which is Strawberry Shake.
 
@@ -187,7 +187,7 @@ If you want to get started with strawberry shake or read more about its capabili
 
 Strawberry Shake was mostly built by [Pascal], [Fred], [Rafael], and [me].
 
-# Hot Chocolate
+## Hot Chocolate
 
 While we focused on Strawberry Shake for this release, we also invested further into our GraphQL server, Hot Chocolate.
 
@@ -689,7 +689,7 @@ private sealed class UpperDirectiveType : DirectiveType
 
 You can even hide directives on runtime based on the user's permission. But as said before, all of this is experimental, and we will see how far this feature goes or how it will change over time.
 
-# Summing up
+## Summing up
 
 Version 11.1 again is a significant update to the platform and has many more things packed that I did not have the time to list here.
 

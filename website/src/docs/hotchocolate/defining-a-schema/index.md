@@ -4,7 +4,7 @@ title: "Overview"
 
 In this section we will learn everything that is needed to build an expressive GraphQL schema.
 
-# Operations
+## Operations
 
 First we will look at the three root types, often called _Operations_, that represent entry points to our schema:
 
@@ -14,7 +14,7 @@ First we will look at the three root types, often called _Operations_, that repr
 
 - Subscriptions allow us to _subscribe_ to events in our system and be notified in real-time of their occurrence.<br />[Learn more about subscriptions](/docs/hotchocolate/defining-a-schema/subscriptions)
 
-# Types
+## Types
 
 Each GraphQL schema is made up of two basic building blocks:
 
@@ -28,7 +28,7 @@ There are also more advanced types:
 - Interfaces represent a shared contract that other types can implement.<br />[Learn more about interfaces](/docs/hotchocolate/defining-a-schema/interfaces)
 - Unions represent a set of object types, without the need for a shared contract.<br />[Learn more about unions](/docs/hotchocolate/defining-a-schema/unions).
 
-# Type Modifiers
+## Type Modifiers
 
 Besides regular types, like scalars and object types, there are also _type modifiers_.
 
@@ -40,7 +40,7 @@ List fields indicate to a client that the field will return a list in the specif
 
 [Learn more about lists](/docs/hotchocolate/defining-a-schema/lists)
 
-# Arguments
+## Arguments
 
 We can pass arguments to individual fields on an object type and access their values inside the field's resolver.
 
@@ -50,7 +50,7 @@ Nested object types can also be used as arguments by declaring so called input o
 
 [Learn more about input object types](/docs/hotchocolate/defining-a-schema/input-object-types)
 
-# Extending Types
+## Extending Types
 
 Hot Chocolate allows us to extend existing types, helping us keep our code organized.
 
@@ -58,7 +58,7 @@ Rather than adding more and more fields to the Query type in the same class for 
 
 [Learn more about extending types](/docs/hotchocolate/defining-a-schema/extending-types)
 
-# Directives
+## Directives
 
 Directives allow us to decorate parts of our GraphQL schema with additional configuration.
 
@@ -66,7 +66,7 @@ This configuration can be used as metadata for client tools or alternate our Gra
 
 [Learn more about directives](/docs/hotchocolate/defining-a-schema/directives)
 
-# Schema evolution
+## Schema evolution
 
 As our data graph and number of developers/clients grows, we need to ensure that the graph is understood by everyone. Therefore, our schema should expose as much information to consumers of our API as possible.
 
@@ -74,13 +74,13 @@ As our data graph and number of developers/clients grows, we need to ensure that
 
 [Learn more about versioning](/docs/hotchocolate/defining-a-schema/versioning)
 
-# Relay
+## Relay
 
 [Relay](https://relay.dev) proposes some schema design principles for GraphQL servers in order to more efficiently fetch, refetch and cache entities on the client. Since these principles make for a better schema, we encourage all users, not only those of Relay, to consider these principles.
 
 [Learn more about Relay-compatible schema design](/docs/hotchocolate/defining-a-schema/relay)
 
-# Automatic type registration
+## Automatic type registration
 
 Starting with Hot Chocolate 12.7 we introduced a new source generator that automatically registers types and DataLoader with your GraphQL configuration builder. Watch on YouTube how you can simplify your Hot Chocolate configuration code.
 

@@ -6,7 +6,7 @@ title: "Networking"
 
 Strawberry Shake supports multiple network protocols to communicate with your GraphQL server. Each transport integration is represented by a specific NuGet package to keep your client size as small as possible.
 
-# Protocols
+## Protocols
 
 | Transport | Protocol                                                                                                          | Package                                                                                                     | Strawberry Shake Version |
 | --------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------ |
@@ -17,7 +17,7 @@ Strawberry Shake supports multiple network protocols to communicate with your Gr
 | gRPC      | GraphQL over gRPC                                                                                                 | StrawberryShake.Transport.gRPC                                                                              | 12.0                     |
 | InMemory  | Hot Chocolate In-Memory                                                                                           | [StrawberryShake.Transport.InMemory](https://www.nuget.org/packages/StrawberryShake.Transport.InMemory)     | 11.1                     |
 
-# Transport Profiles
+## Transport Profiles
 
 In order to have a small client size and generate the optimized client for your use-case Strawberry Shake uses transport profiles. By default Strawberry Shake will generate a client that uses `GraphQL over HTTP` for queries and mutations and `subscriptions-transport-ws` for subscriptions. Meaning if you are only using queries and mutations you need to add the package `StrawberryShake.Transport.Http`.
 

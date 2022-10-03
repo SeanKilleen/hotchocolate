@@ -12,7 +12,7 @@ Each field middleware only knows about the next element in the chain and can cho
 
 Each field middleware also has access to an `IMiddlewareContext`. It implements the `IResolverContext` interface so you can use all of the `IResolverContext` APIs in your middleware, similarly to how you would use them in your resolver. There are also some special properties like the `Result`, which holds the resolver or middleware computed result.
 
-# Middleware order
+## Middleware order
 
 If you have used Hot Chocolate's data middleware before you might have encountered warnings about the order of middleware. The order is important, since it determines in which order the middleware are executed, e.g. in which order the resolver result is being processed.
 
@@ -42,7 +42,7 @@ sequenceDiagram
 
 As you can see the result of the resolver flows backwards through the middleware. So the middleware is first invoked in the order they were defined, but the result produced by the last middleware, the field resolver, is sent back to first middleware in reverse order.
 
-# Definition
+## Definition
 
 Field middleware can be defined either as a delegate or as a separate type. In both cases we gain access to a `FieldDelegate`, which allows us to invoke the next middleware, and the `IMiddlewareContext`.
 
@@ -209,7 +209,7 @@ descriptor
         provider.GetRequiredService<FooBar>()));
 ```
 
-# Usage as an attribute
+## Usage as an attribute
 
 Up until now we have only worked with Code-first APIs to create the field middleware. What if you want to apply your middleware to a field resolver defined using the Annotation-based approach?
 
@@ -247,7 +247,7 @@ public class Query
 }
 ```
 
-# Accessing the resolver result
+## Accessing the resolver result
 
 The `IMiddlewareContext` conveniently contains a `Result` property that can be used to access the field resolver result.
 
@@ -275,7 +275,7 @@ A middleware can also set or override the result by assigning the `context.Resul
 
 > Note: The field resolver will only execute if no result has been produced by one of the preceding field middleware. If any middleware has set the `Result` property on the `IMiddlewareContext`, the field resolver will be skipped.
 
-# Short-circuiting
+## Short-circuiting
 
 In some cases we might want to short-circuit the execution of field middleware / the field resolver. For this we can simply not call the `FieldDelegate` (`next`).
 

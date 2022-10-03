@@ -36,7 +36,7 @@ Clients can query fields returning an interface like the following.
 
 Learn more about interfaces [here](https://graphql.org/learn/schema/#interfaces).
 
-# Usage
+## Usage
 
 Interfaces can be defined like the following.
 
@@ -238,7 +238,7 @@ public class Startup
 > services.AddGraphQLServer().AddType<TextMessageType>()
 > ```
 
-# Interfaces implementing interfaces
+## Interfaces implementing interfaces
 
 Interfaces can also implement other interfaces.
 
@@ -459,7 +459,7 @@ public class Startup
 > services.AddGraphQLServer().AddType<DatedMessageType>()
 > ```
 
-# Dynamic fields
+## Dynamic fields
 
 We can also declare additional dynamic fields (resolvers) on our interfaces.
 

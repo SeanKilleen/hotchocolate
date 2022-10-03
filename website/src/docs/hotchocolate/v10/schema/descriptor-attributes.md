@@ -17,7 +17,7 @@ public class QueryType
 
 This is where descriptor attributes come in. Descriptor attributes allow us to package descriptor configurations into an attribute that can be used to decorate our .NET types. Descriptor attributes act like an interceptor into the configuration of the inferred schema type.
 
-# Built-In Attributes
+## Built-In Attributes
 
 We have prepared the following set of built-in descriptor attributes.
 
@@ -85,7 +85,7 @@ public class Query
 }
 ```
 
-# Attribute Chaining
+## Attribute Chaining
 
 Attributes can by default be chained, meaning that the attributes are applied in order from the top one to the bottom one.
 
@@ -120,7 +120,7 @@ public class QueryType
 }
 ```
 
-# Custom Descriptor Attributes
+## Custom Descriptor Attributes
 
 It is super simple to create custom descriptor attributes and package complex functionality in simple to use attributes.
 

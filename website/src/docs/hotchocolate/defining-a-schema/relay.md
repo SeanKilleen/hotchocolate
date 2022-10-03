@@ -16,7 +16,7 @@ As part of a specification Relay proposes some schema design principles for Grap
 src="https://www.youtube.com/embed/qWguoAMzn9E"frameborder="0"
 allowfullscreen></iframe>
 
-# Global identifiers
+## Global identifiers
 
 If an output type contains an `id: ID!` field, [Relay](https://relay.dev) and other GraphQL clients will consider this the unique identifier of the entity and might use it to construct a flat cache. This can be problematic, since we could have the same identifier for two of our types. When using a database for example, a `Foo` and `Bar` entity could both contain a row with the identifier `1` in their respective tables.
 
@@ -192,7 +192,7 @@ The `Serialize()` method takes the schema name as a first argument, followed by 
 
 [Learn more about accessing services](/docs/hotchocolate/fetching-data/resolvers#injecting-services)
 
-# Global Object Identification
+## Global Object Identification
 
 Global Object Identification, as the name suggests, is about being able to uniquely identify an object within our schema. Moreover, it allows consumers of our schema to refetch an object in a standardized way. This capability allows client applications, such as [Relay](https://relay.dev), to automatically refetch types.
 
@@ -438,7 +438,7 @@ Since node resolvers resolve entities by their Id, they are the perfect place to
 
 [Learn more about DataLoaders](/docs/hotchocolate/fetching-data/dataloader)
 
-# Connections
+## Connections
 
 _Connections_ are a standardized way to expose pagination capabilities.
 
@@ -468,7 +468,7 @@ type PageInfo {
 
 [Learn more about Connections](/docs/hotchocolate/fetching-data/pagination#connections)
 
-# Query field in Mutation payloads
+## Query field in Mutation payloads
 
 It's a common best practice to return a payload type from mutations containing the affected entity as a field.
 

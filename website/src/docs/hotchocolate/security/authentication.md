@@ -10,7 +10,7 @@ Hot Chocolate fully embraces the authentication capabilities of ASP.NET Core, ma
 
 [Learn more about authentication in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication)
 
-# Setup
+## Setup
 
 Setting up authentication is largely the same as in any other ASP.NET Core application.
 
@@ -95,7 +95,7 @@ All of this does not yet lock out unauthenticated users. It only exposes the ide
 
 [Learn more about authorization](/docs/hotchocolate/security/authorization)
 
-# Accessing the ClaimsPrincipal
+## Accessing the ClaimsPrincipal
 
 The [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) of an authenticated user can be accessed in our resolvers like the following.
 
